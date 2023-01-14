@@ -29,7 +29,7 @@ export const Background = styled.div<HeaderBackgroundProps>`
 
 export const Container = styled.div`
   display: flex;
-  margin: 0 56px;
+  margin: 0 3.5rem;
   height: 100px;
   justify-content: space-between;
   align-items: center;
@@ -39,7 +39,7 @@ export const Container = styled.div`
   }
 
   @media (max-width: 1000px) {
-    margin: 0 30px;
+    margin: 0 2.5rem;
   }
 `;
 
@@ -48,7 +48,7 @@ export const Logo = styled.img`
   width: 167px;
 
   @media only screen and (max-width: 349px), only screen and (min-width: 350px) and (max-width: 399px), only screen and (min-width: 400px) and (max-width: 549px) {
-    height: 24px;
-    width: 30%;
+    height: 30px;
+    width: 60%; //Need to fix
   }
 `;

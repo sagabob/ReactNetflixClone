@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { Global } from "@emotion/react";
+import { Global, css } from "@emotion/react";
 
-const GlobalStyles = styled(Global)`
+const GlobalStyles = css`
   *,
   *:before,
   *:after {
