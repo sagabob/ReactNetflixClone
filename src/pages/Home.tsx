@@ -1,4 +1,4 @@
-import HeaderContainer from "../containers/header";
+import HeaderContainer from "../containers/header_section";
 
 function Home() {
   return (

@@ -1,17 +1,15 @@
-import Header from "../components/header";
-import { HeaderProps } from "../components/header/types";
-import * as ROUTES from "../constants/routes";
+import Feature from "../components/feature";
+import HeaderSection from "./header_section";
 
-const HeaderArea = (props: HeaderProps) => {
+const HeaderContainer = () => {
   return (
-    <Header>
-      <Header.Frame>
-        <Header.Logo to={ROUTES.HOME} src="/images/logo.svg" alt="Netflix" />
-        <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
-      </Header.Frame>
-      {props.children}
-    </Header>
+    <HeaderSection>
+      <Feature>
+        <Feature.Title>Unlimited films, TV programmes and more.</Feature.Title>
+        <Feature.SubTitle>Watch anywhere. Cancel at any time.</Feature.SubTitle>
+      </Feature>
+    </HeaderSection>
   );
 };
 
-export default HeaderArea;
+export default HeaderContainer;
