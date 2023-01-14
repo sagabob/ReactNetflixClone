@@ -1,4 +1,4 @@
-import styled from "styled-components/macro";
+import styled from "@emotion/styled";
 import { Link as ReachRouterLink } from "react-router-dom";
 import { HeaderBackgroundProps } from "./types";
 

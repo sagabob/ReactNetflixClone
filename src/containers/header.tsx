@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../components/header";
 import { HeaderProps } from "../components/header/types";
 import * as ROUTES from "../constants/routes";

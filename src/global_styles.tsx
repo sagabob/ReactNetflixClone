@@ -1,19 +1,24 @@
-import { createGlobalStyle } from "styled-components";
+import styled from "@emotion/styled";
+import { Global } from "@emotion/react";
 
-const GlobalStyles = createGlobalStyle`
-  *, *:before, *:after {
+const GlobalStyles = styled(Global)`
+  *,
+  *:before,
+  *:after {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
   }
-  html, body {
+  html,
+  body {
     height: 100%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #000000;
     color: #333333;
     font-size: 16px;
-}`;
+  }
+`;
 
 export default GlobalStyles;
