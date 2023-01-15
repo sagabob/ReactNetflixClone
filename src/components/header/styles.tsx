@@ -48,7 +48,7 @@ export const Logo = styled.img`
   width: 167px;
 
   @media only screen and (max-width: 349px), only screen and (min-width: 350px) and (max-width: 399px), only screen and (min-width: 400px) and (max-width: 549px) {
-    height: 30px;
-    width: 60%; //Need to fix
+    height: 35px;
+    width: 70%; //Need to fix
   }
 `;

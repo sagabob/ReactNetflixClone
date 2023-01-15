@@ -20,5 +20,5 @@ export const SubTitle = styled.h2`
   color: white;
   font-size: 1.625rem;
   font-weight: normal;
-  margin: 16px auto;
+  margin: 1rem auto;
 `;
