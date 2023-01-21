@@ -1,4 +1,4 @@
 import { createContext } from "react";
-import { FagItem } from "./types";
+import { ToggleContextProps } from "./types";
 
-export const ToggleContext = createContext<FagItem|null>(null);
+export const ToggleContext = createContext<ToggleContextProps>({} as ToggleContextProps);
