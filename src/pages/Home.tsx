@@ -1,3 +1,4 @@
+import { FaqsContainer } from "../containers/faq";
 import HeaderContainer from "../containers/header";
 import { JumbotronContainer } from "../containers/jumbotron";
 
@@ -6,6 +7,7 @@ function Home() {
     <>
       <HeaderContainer />
       <JumbotronContainer />
+      <FaqsContainer/>
     </>
   );
 }
