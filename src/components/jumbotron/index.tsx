@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Item, Inner, Pane, Title, SubTitle, Image } from './styles';
 import {JumbotronContainerProps, JumbotronImgProps, JumbotronInnerProps, JumbotronPaneProps, JumbotronSubTitleProps, JumbotronTitleProps } from './types';
 
