@@ -19,7 +19,7 @@ Header.Logo = ({ children, src, to, ...restProps }: HeaderLogoProps) => {
 };
 
 Header.ButtonLink = ({ children, to, ...restProps }: HeaderButtonLinkProps) => {
-  return <ButtonLink to={to}>{children}</ButtonLink>;
+  return <ButtonLink to={to} {...restProps}>{children}</ButtonLink>;
 };
 
 export default Header;
