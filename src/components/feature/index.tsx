@@ -1,16 +1,16 @@
 import { Container, Title, SubTitle } from "./styles";
 import { FeatureContainerProps, FeatureSubTitleProps, FeatureTitleProps } from "./types";
 
-const Feature = (props: FeatureContainerProps) => {
-  return <Container>{props.children}</Container>;
+const Feature = ({ children, ...restProps }: FeatureContainerProps) => {
+  return <Container {...restProps}>{children}</Container>;
 };
 
-Feature.Title = (props: FeatureTitleProps) => {
-  return <Title>{props.children}</Title>;
+Feature.Title = ({ children, ...restProps }: FeatureTitleProps) => {
+  return <Title {...restProps}>{children}</Title>;
 };
 
-Feature.SubTitle = (props: FeatureSubTitleProps) => {
-  return <SubTitle>{props.children}</SubTitle>;
+Feature.SubTitle = ({ children, ...restProps }: FeatureSubTitleProps) => {
+  return <SubTitle {...restProps}>{children}</SubTitle>;
 };
 
 export default Feature;

@@ -2,24 +2,24 @@ import { Background, ButtonLink, Container, Logo } from "./styles";
 import { HeaderButtonLinkProps, HeaderCoreProps, HeaderLogoProps, HeaderProps } from "./types";
 import { Link as ReachRouterLink } from "react-router-dom";
 
-const Header = function (props: HeaderProps) {
-  return <Background src={props.src}>{props.children}</Background>;
+const Header = function ({ children, src, ...restProps }: HeaderProps) {
+  return <Background src={src}  {...restProps}>{children}</Background>;
 };
 
-Header.Frame = (props: HeaderCoreProps) => {
-  return <Container>{props.children}</Container>;
+Header.Frame = ({ children, ...restProps }: HeaderCoreProps) => {
+  return <Container {...restProps}>{children}</Container>;
 };
 
-Header.Logo = (props: HeaderLogoProps) => {
+Header.Logo = ({ children, src, to, ...restProps }: HeaderLogoProps) => {
   return (
-    <ReachRouterLink to={props.to}>
-      <Logo src={props.src} />
+    <ReachRouterLink to={to}>
+      <Logo src={src} {...restProps} />
     </ReachRouterLink>
   );
 };
 
-Header.ButtonLink = (props: HeaderButtonLinkProps) => {
-  return <ButtonLink to={props.to}>{props.children}</ButtonLink>;
+Header.ButtonLink = ({ children, to, ...restProps }: HeaderButtonLinkProps) => {
+  return <ButtonLink to={to}>{children}</ButtonLink>;
 };
 
 export default Header;

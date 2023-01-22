@@ -1,16 +1,16 @@
 import { Area, Break, Button, Container, Input, Text } from "./styles";
 import { OptFormButtonProps, OptFormInputProps, OptFormProps, OptFormTextProps } from "./types";
 
-const OptForm = (props: OptFormProps) => {
-  return <Container>{props.children}</Container>;
+const OptForm = ({ children, ...restProps }: OptFormProps) => {
+  return <Container {...restProps}>{children}</Container>;
 };
 
-OptForm.Area = (props: OptFormProps) => {
-  return <Area>{props.children}</Area>;
+OptForm.Area = ({ children, ...restProps }: OptFormProps) => {
+  return <Area {...restProps}>{children}</Area>;
 };
 
-OptForm.Text = (props: OptFormTextProps) => {
-  return <Text>{props.children}</Text>;
+OptForm.Text = ({ children, ...restProps }: OptFormTextProps) => {
+  return <Text {...restProps}>{children}</Text>;
 };
 
 OptForm.Input = (props: OptFormInputProps) => {
@@ -21,10 +21,10 @@ OptForm.Break = () => {
   return <Break />;
 };
 
-OptForm.Button = (props: OptFormButtonProps) => {
+OptForm.Button = ({ children, ...restProps }: OptFormButtonProps) => {
   return (
-    <Button>
-      {props.children} <img src="/images/icons/chevron-right.png" alt="Try Now" />
+    <Button {...restProps}>
+      {children} <img src="/images/icons/chevron-right.png" alt="Try Now" />
     </Button>
   );
 };
