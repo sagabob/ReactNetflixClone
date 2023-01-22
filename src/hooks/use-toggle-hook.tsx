@@ -7,9 +7,7 @@ function useToggleContext(): ToggleContextProps {
     if (context === undefined) {
         throw new Error('useToggle must be used within Provider')
     }
-    const {toggleItem,setToggleItem } = context
-
-    return {toggleItem,setToggleItem }
+    return context
 }
 
 export default useToggleContext
