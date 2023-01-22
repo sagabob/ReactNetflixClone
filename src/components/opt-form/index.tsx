@@ -1,5 +1,5 @@
 import { Area, Break, Button, Container, Input, Text } from "./styles";
-import { OptFormButtonProps, OptFormInputProps, OptFormProps, OptFormTextProps } from "./types";
+import { OptFormBreakProps, OptFormButtonProps, OptFormInputProps, OptFormProps, OptFormTextProps } from "./types";
 
 const OptForm = ({ children, ...restProps }: OptFormProps) => {
   return <Container {...restProps}>{children}</Container>;
@@ -17,8 +17,8 @@ OptForm.Input = (props: OptFormInputProps) => {
   return <Input {...props} />;
 };
 
-OptForm.Break = () => {
-  return <Break />;
+OptForm.Break = ({...restProps}: OptFormBreakProps ) => {
+  return <Break {...restProps}/>;
 };
 
 OptForm.Button = ({ children, ...restProps }: OptFormButtonProps) => {
