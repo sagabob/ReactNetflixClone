@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Accordion from '../components/accordion';
 import OptForm from '../components/opt-form';
-import { ToggleContext } from '../context/ToggleContext';
+import { ToggleContext } from '../context/toggle-context';
 import { FagItem } from '../context/types';
 import faqsData from '../fixtures/faqs.json';
 

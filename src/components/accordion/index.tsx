@@ -1,4 +1,4 @@
-import useToggleContext from '../../context/ContextHooks';
+import useToggleContext from '../../hooks/use-toggle-hook';
 import { Body, Container, Frame, Header, Inner, Item, Title } from './styles';
 import { AccordionBodyProps, AccordionFrameProps, AccordionHeaderProps, AccordionItemProps, AccordionProps, AccordionTitleProps } from './types';
 
