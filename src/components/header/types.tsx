@@ -1,6 +1,5 @@
-import { ReactNode } from "react";
 
-export interface HeaderCoreProps extends React.ComponentPropsWithoutRef<"div"> {}
+export interface HeaderFrameProps extends React.ComponentPropsWithoutRef<"div"> {}
 
 export interface HeaderBackgroundProps extends React.ComponentPropsWithoutRef<"div"> {
   src?: string;

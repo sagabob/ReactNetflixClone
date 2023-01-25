@@ -1,12 +1,12 @@
 import { Background, ButtonLink, Container, Logo } from "./styles";
-import { HeaderButtonLinkProps, HeaderCoreProps, HeaderLogoProps, HeaderProps } from "./types";
+import { HeaderButtonLinkProps, HeaderFrameProps, HeaderLogoProps, HeaderProps } from "./types";
 import { Link as ReachRouterLink } from "react-router-dom";
 
 const Header = function ({ children, src, ...restProps }: HeaderProps) {
   return <Background src={src}  {...restProps}>{children}</Background>;
 };
 
-Header.Frame = ({ children, ...restProps }: HeaderCoreProps) => {
+Header.Frame = ({ children, ...restProps }: HeaderFrameProps) => {
   return <Container {...restProps}>{children}</Container>;
 };
 
