@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { AuthContext } from "./auth-context"
 import { auth } from "./firebase"
 import { AuthProviderProps } from "./types"
+import { updateProfile } from "firebase/auth";
 
 export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
     const [user, setUser] = useState<User | null>(null)
@@ -31,6 +32,7 @@ export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
         signIn,
         resetPassword,
         auth,
+        updateProfile
     }
     return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 }

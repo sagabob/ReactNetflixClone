@@ -22,4 +22,5 @@ export interface AuthContextModel {
     signIn: (email: string, password: string) => Promise<UserCredential>
     signUp: (email: string, password: string) => Promise<UserCredential>
     sendPasswordResetEmail?: (email: string) => Promise<void>
+    updateProfile: (Usre, )
 }
