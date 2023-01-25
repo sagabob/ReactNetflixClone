@@ -14,7 +14,6 @@ export interface HeaderLogoProps extends React.ComponentPropsWithoutRef<"img"> {
   to: string;
 }
 
-export interface HeaderButtonLinkProps {
-  children: ReactNode;
+export interface HeaderButtonLinkProps extends React.ComponentPropsWithoutRef<"a"> {  
   to: string;
 }
