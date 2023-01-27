@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import Form from '../components/form'
 import HeaderSection from '../containers/header_section';
 import { FooterContainer } from '../containers/footer';
-import useAuth from '../hooks/use-auth-hook';
 import * as ROUTES from '../constants/routes';
+import { AuthContext } from "../context/auth-context"
 
 export default function SignUp() {
     const history = useNavigate();
-    const { signUp, updateProfile } = useAuth();
+    const { signUp, updateProfile } = AuthContext.useContext()
 
     const [firstName, setFirstName] = useState('');
     const [emailAddress, setEmailAddress] = useState('');

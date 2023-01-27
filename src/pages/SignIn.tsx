@@ -4,11 +4,11 @@ import Form from '../components/form'
 import HeaderSection from '../containers/header_section';
 import { FooterContainer } from '../containers/footer';
 import * as ROUTES from '../constants/routes';
-import useAuth from '../hooks/use-auth-hook';
+import { AuthContext } from "../context/auth-context"
 
 export default function SignIn() {
     const history = useNavigate();
-    const { signIn } = useAuth();
+    const { signIn } = AuthContext.useContext();
 
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
