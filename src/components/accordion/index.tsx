@@ -1,4 +1,5 @@
-import useToggleContext from '../../hooks/use-toggle-hook';
+
+import { ToggleContext } from '../../context/toggle-context';
 import { Body, Container, Frame, Header, Inner, Item, Title } from './styles';
 import { AccordionBodyProps, AccordionFrameProps, AccordionHeaderProps, AccordionItemProps, AccordionProps, AccordionTitleProps } from './types';
 
@@ -27,7 +28,7 @@ Accordion.Item = function AccordionItem({ children, ...restProps }: AccordionIte
 };
 
 Accordion.Header = function AccordionHeader({ children, itemName, ...restProps }: AccordionHeaderProps) {
-  const { toggleItem, setToggleItem } = useToggleContext()
+  const { toggleItem, setToggleItem } = ToggleContext.useContext()
   const checkItemHandler = (item: string) => {
     if (item === toggleItem)
       setToggleItem("")
@@ -45,7 +46,7 @@ Accordion.Header = function AccordionHeader({ children, itemName, ...restProps }
 };
 
 Accordion.Body = function AccordionBody({ children, itemName, ...restProps }: AccordionBodyProps) {
-  const { toggleItem } = useToggleContext()
+  const { toggleItem } = ToggleContext.useContext()
   return (
     <Body className={toggleItem === itemName ? 'open' : 'closed'} {...restProps}>
       <span>{children}</span>

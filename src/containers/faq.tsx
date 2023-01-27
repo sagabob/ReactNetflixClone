@@ -7,10 +7,11 @@ import faqsData from '../fixtures/faqs.json';
 
 export function FaqsContainer() {
     const [toggleItem, setToggleItem] = useState("")
+    const CurrentToggleContext = ToggleContext.context
     return (
         <Accordion>
             <Accordion.Title>Frequently Asked Questions</Accordion.Title>
-            <ToggleContext.Provider value={{ toggleItem, setToggleItem }}>
+            <CurrentToggleContext.Provider value={{ toggleItem, setToggleItem }}>
                 <Accordion.Frame>
                     {faqsData.map((item: FagItem) => (
                         <Accordion.Item key={item.id}>
@@ -19,7 +20,7 @@ export function FaqsContainer() {
                         </Accordion.Item>
                     ))}
                 </Accordion.Frame>
-            </ToggleContext.Provider>
+            </CurrentToggleContext.Provider>
             <OptForm>
                 <OptForm.Text>Ready to watch? Enter your email to create or restart your membership.</OptForm.Text>
                 <OptForm.Area>

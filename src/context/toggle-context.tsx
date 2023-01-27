@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import createSafeContext from "../lib/createSafeContext";
 import { ToggleContextProps } from "./types";
 
-export const ToggleContext = createContext<ToggleContextProps|undefined>(undefined);
+export const ToggleContext = createSafeContext<ToggleContextProps>()
