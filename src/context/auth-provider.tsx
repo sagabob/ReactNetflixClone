@@ -6,19 +6,19 @@ import { AuthProviderProps } from "./types"
 import { updateProfile } from "firebase/auth";
 
 export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
-    const [user, setUser] = useState<User | null>(null)
+    const [user, setUser] = useState<User | null>(null);
 
-    const CurrentAuthContext = AuthContext.context
+    const CurrentAuthContext = AuthContext.context;
 
     function signUp(email: string, password: string): Promise<UserCredential> {
-        return createUserWithEmailAndPassword(auth, email, password)
+        return createUserWithEmailAndPassword(auth, email, password);
     }
 
     function signIn(email: string, password: string): Promise<UserCredential> {
-        return signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password);
     }
     function resetPassword(email: string): Promise<void> {
-        return sendPasswordResetEmail(auth, email)
+        return sendPasswordResetEmail(auth, email);
     }
     useEffect(() => {
         //function that firebase notifies you if a user is set
@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
             setUser(user)
         })
         return unsubsrcibe
-    }, [])
+    }, []);
 
     const values = {
         signUp,
@@ -35,6 +35,7 @@ export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
         resetPassword,
         auth,
         updateProfile
-    }
+    };
+    
     return <CurrentAuthContext.Provider value={values}>{children}</CurrentAuthContext.Provider>
 }

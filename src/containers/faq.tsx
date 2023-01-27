@@ -6,8 +6,8 @@ import { FagItem } from '../context/types';
 import faqsData from '../fixtures/faqs.json';
 
 export function FaqsContainer() {
-    const [toggleItem, setToggleItem] = useState("")
-    const CurrentToggleContext = ToggleContext.context
+    const [toggleItem, setToggleItem] = useState("");
+    const CurrentToggleContext = ToggleContext.context;
     return (
         <Accordion>
             <Accordion.Title>Frequently Asked Questions</Accordion.Title>
