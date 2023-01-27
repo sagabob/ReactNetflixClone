@@ -1,4 +1,4 @@
-import React from "react";
+import createSafeContext from "../lib/createSafeContext";
 import { AuthContextModel } from "./types";
 
-export const AuthContext = React.createContext<AuthContextModel | undefined>(undefined)
+export const AuthContext = createSafeContext<AuthContextModel>()

@@ -8,6 +8,8 @@ import { updateProfile } from "firebase/auth";
 export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
     const [user, setUser] = useState<User | null>(null)
 
+    const CurrentAuthContext = AuthContext.context
+
     function signUp(email: string, password: string): Promise<UserCredential> {
         return createUserWithEmailAndPassword(auth, email, password)
     }
@@ -34,5 +36,5 @@ export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element => {
         auth,
         updateProfile
     }
-    return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
+    return <CurrentAuthContext.Provider value={values}>{children}</CurrentAuthContext.Provider>
 }
