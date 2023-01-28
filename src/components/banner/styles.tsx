@@ -50,4 +50,5 @@ export const Description = styled.p`
 export const FadeBottom = styled.div`
     height: 220px;
     background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+    
 `;

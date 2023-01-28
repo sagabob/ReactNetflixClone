@@ -9,8 +9,9 @@ export function BannerContainer() {
                 <Banner.ButtonArea>
                     <Banner.Button>Play</Banner.Button>
                     <Banner.Button>More Info</Banner.Button>
-                </Banner.ButtonArea>
+                </Banner.ButtonArea>                
             </Banner.Content>
+            <Banner.FadeBottom/>
         </Banner>
     );
 
