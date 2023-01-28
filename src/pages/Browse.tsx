@@ -1,7 +1,10 @@
+import { BannerContainer } from "../containers/banner";
 
 
 export default function Browse() {
     return (
-        <div>Browse</div>
+        <>
+            <BannerContainer />
+        </>
     )
 }
