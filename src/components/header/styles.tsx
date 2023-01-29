@@ -14,7 +14,6 @@ export const ButtonLink = styled(ReachRouterLink)`
   padding: 7px 17px;
   cursor: pointer;
   text-decoration: none;
-
   &:hover {
     background: #f40612;
   }

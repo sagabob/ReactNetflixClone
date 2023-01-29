@@ -1,6 +1,7 @@
-import { Area, ButtonLink, LeftMenu, LeftMenuArea, LeftMenuItem, Logo, RightMenuArea } from "./styles";
-import { NavbarAreaProps, NavbarButtonLinkProps, NavbarLeftMenuAreaProps, NavbarLeftMenuItemProps, NavbarLeftMenuProps, NavbarLogoProps, NavbarRightMenuAreaProps } from "./types";
+import { Area, ButtonLink, LeftMenu, LeftMenuArea, LeftMenuItem, Logo, RightMenuArea, RightMenuButton, SearchArea, SearchIcon, SearchInput } from "./styles";
+import { NavbarAreaProps, NavbarButtonLinkProps, NavbarLeftMenuAreaProps, NavbarLeftMenuItemProps, NavbarLeftMenuProps, NavbarLogoProps, NavbarRightMenuAreaProps, NavbarRightMenuButtonProps, NavbarSearchProps } from "./types";
 import { Link as ReachRouterLink } from "react-router-dom";
+import { useState } from "react";
 
 export default function Navbar({ children, ...restProps }: NavbarAreaProps) {
     return (
@@ -40,5 +41,31 @@ Navbar.LeftMenuItem = ({ children, ...restProps }: NavbarLeftMenuItemProps) => {
 
 Navbar.ButtonLink = ({ children, to, ...restProps }: NavbarButtonLinkProps) => {
     return <ButtonLink to={to} {...restProps}>{children}</ButtonLink>;
-  };
+};
+
+
+Navbar.RightMenuButton = ({ children, ...restProps }: NavbarRightMenuButtonProps) => {
+    return (
+        <RightMenuButton  {...restProps} >{children}</RightMenuButton>
+    );
+};
+
+
+Navbar.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }: NavbarSearchProps) {
+    const [searchActive, setSearchActive] = useState(false);
   
+    return (
+      <SearchArea {...restProps}>
+        <SearchIcon onClick={() => setSearchActive((searchActive) => !searchActive)} data-testid="search-click">
+          <img src="/images/icons/search.png" alt="Search" />
+        </SearchIcon>
+        <SearchInput
+          value={searchTerm}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+          placeholder="Search films and series"
+          active={searchActive}
+          data-testid="search-input"
+        />
+      </SearchArea>
+    );
+  };
