@@ -23,7 +23,9 @@ export function NavbarContainer() {
             <Navbar.LeftMenuArea>
                 <Navbar.Logo to={ROUTES.HOME} src="/images/logo.svg" alt="Netflix" />
                 <Navbar.LeftMenu>
-
+                    <Navbar.LeftMenuItem>
+                        
+                    </Navbar.LeftMenuItem>
                 </Navbar.LeftMenu>
             </Navbar.LeftMenuArea>
         </Navbar>

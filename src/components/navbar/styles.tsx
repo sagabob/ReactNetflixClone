@@ -43,6 +43,10 @@ export const LeftMenu = styled.ul`
 `;
 
 export const LeftMenuItem = styled.li`
+  display: block;  
+`;
+
+export const ButtonLink = styled(ReachRouterLink)`
   display: block;
   background-color: #e50914;
   color: white;
@@ -50,4 +54,3 @@ export const LeftMenuItem = styled.li`
     background: #f40612;
   }
 `;
-

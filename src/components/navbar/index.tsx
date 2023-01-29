@@ -1,5 +1,5 @@
-import { Area, LeftMenu, LeftMenuArea, LeftMenuItem, Logo, RightMenuArea } from "./styles";
-import { NavbarAreaProps, NavbarLeftMenuAreaProps, NavbarLeftMenuItemProps, NavbarLeftMenuProps, NavbarLogoProps, NavbarRightMenuAreaProps } from "./types";
+import { Area, ButtonLink, LeftMenu, LeftMenuArea, LeftMenuItem, Logo, RightMenuArea } from "./styles";
+import { NavbarAreaProps, NavbarButtonLinkProps, NavbarLeftMenuAreaProps, NavbarLeftMenuItemProps, NavbarLeftMenuProps, NavbarLogoProps, NavbarRightMenuAreaProps } from "./types";
 import { Link as ReachRouterLink } from "react-router-dom";
 
 export default function Navbar({ children, ...restProps }: NavbarAreaProps) {
@@ -37,3 +37,8 @@ Navbar.LeftMenuItem = ({ children, ...restProps }: NavbarLeftMenuItemProps) => {
         <LeftMenuItem  {...restProps} >{children}</LeftMenuItem>
     );
 };
+
+Navbar.ButtonLink = ({ children, to, ...restProps }: NavbarButtonLinkProps) => {
+    return <ButtonLink to={to} {...restProps}>{children}</ButtonLink>;
+  };
+  
