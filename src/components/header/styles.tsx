@@ -51,3 +51,5 @@ export const Logo = styled.img`
     width: 70%; //Need to fix
   }
 `;
+
+

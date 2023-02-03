@@ -37,3 +37,21 @@ export interface NavbarSearchProps extends React.ComponentPropsWithoutRef<"div">
     setSearchTerm: (s: string) => void;
 }
 
+export interface NavbarProfileProps extends React.ComponentPropsWithoutRef<"div"> {
+
+}
+
+export interface NavbarGroupProps extends React.ComponentPropsWithoutRef<"div"> {
+    
+}
+
+export interface NavbarPictureProps extends React.ComponentPropsWithoutRef<"button"> {
+   src: string; 
+}
+
+export interface NavbarDropDownProps extends React.ComponentPropsWithoutRef<"div"> {
+}
+
+export interface NavbarTextLinkProps extends React.ComponentPropsWithoutRef<"p"> {
+}
+

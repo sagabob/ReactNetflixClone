@@ -1,5 +1,5 @@
-import { Area, ButtonLink, LeftMenu, LeftMenuArea, LeftMenuItem, Logo, RightMenuArea, RightMenuButton, SearchArea, SearchIcon, SearchInput } from "./styles";
-import { NavbarAreaProps, NavbarButtonLinkProps, NavbarLeftMenuAreaProps, NavbarLeftMenuItemProps, NavbarLeftMenuProps, NavbarLogoProps, NavbarRightMenuAreaProps, NavbarRightMenuButtonProps, NavbarSearchProps } from "./types";
+import { Area, ButtonLink, Dropdown, Group, LeftMenu, LeftMenuArea, LeftMenuItem, Logo, Picture, Profile, RightMenuArea, RightMenuButton, SearchArea, SearchIcon, SearchInput, TextLink } from "./styles";
+import { NavbarAreaProps, NavbarButtonLinkProps, NavbarDropDownProps, NavbarGroupProps, NavbarLeftMenuAreaProps, NavbarLeftMenuItemProps, NavbarLeftMenuProps, NavbarLogoProps, NavbarPictureProps, NavbarProfileProps, NavbarRightMenuAreaProps, NavbarRightMenuButtonProps, NavbarSearchProps, NavbarTextLinkProps } from "./types";
 import { Link as ReachRouterLink } from "react-router-dom";
 import { useState } from "react";
 
@@ -53,19 +53,40 @@ Navbar.RightMenuButton = ({ children, ...restProps }: NavbarRightMenuButtonProps
 
 Navbar.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }: NavbarSearchProps) {
     const [searchActive, setSearchActive] = useState(false);
-  
+
     return (
-      <SearchArea {...restProps}>
-        <SearchIcon onClick={() => setSearchActive((searchActive) => !searchActive)} data-testid="search-click">
-          <img src="/images/icons/search.png" alt="Search" />
-        </SearchIcon>
-        <SearchInput
-          value={searchTerm}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
-          placeholder="Search films and series"
-          active={searchActive}
-          data-testid="search-input"
-        />
-      </SearchArea>
+        <SearchArea {...restProps}>
+            <SearchIcon onClick={() => setSearchActive((searchActive) => !searchActive)} data-testid="search-click">
+                <img src="/images/icons/search.png" alt="Search" />
+            </SearchIcon>
+            <SearchInput
+                value={searchTerm}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+                placeholder="Title, people, genres..."
+                active={searchActive}
+                data-testid="search-input"
+            />
+        </SearchArea>
     );
-  };
+};
+
+Navbar.Group = ({ children, ...restProps }: NavbarGroupProps) => {
+    return <Group {...restProps}>{children}</Group>;
+};
+
+Navbar.Profile = ({ children, ...restProps }: NavbarProfileProps) => {
+    return <Profile {...restProps}>{children}</Profile>;
+};
+
+
+Navbar.Picture = ({ src, ...restProps }: NavbarPictureProps) => {
+    return <Picture {...restProps} src={`/images/users/${src}.png`} />;
+};
+
+Navbar.Dropdown = ({ children, ...restProps }: NavbarDropDownProps) => {
+    return <Dropdown {...restProps}>{children}</Dropdown>;
+};
+
+Navbar.TextLink = ({ children, ...restProps }: NavbarTextLinkProps) => {
+    return <TextLink {...restProps}>{children}</TextLink>;
+};

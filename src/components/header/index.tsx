@@ -22,4 +22,8 @@ Header.ButtonLink = ({ children, to, ...restProps }: HeaderButtonLinkProps) => {
   return <ButtonLink to={to} {...restProps}>{children}</ButtonLink>;
 };
 
+
+Header.Group = function HeaderGroup({ children, ...restProps }) {
+  return <Group {...restProps}>{children}</Group>;
+};
 export default Header;

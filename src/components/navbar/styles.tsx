@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { NavbarAreaProps, NavbarSearchInputProps } from "./types";
+import { NavbarAreaProps, NavbarPictureProps, NavbarSearchInputProps } from "./types";
 import { Link as ReachRouterLink } from "react-router-dom";
 
 
@@ -38,6 +38,7 @@ export const RightMenuArea = styled.div`
     align-items: center; 
     flex-grow: 1;    
     height: 100%;
+    margin-right: 20px;
 `;
 
 export const LeftMenu = styled.ul`
@@ -124,3 +125,72 @@ export const ButtonLink = styled(ReachRouterLink)`
     background: #f40612;
   }
 `;
+
+export const Profile = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  position: relative;
+
+  button {
+    cursor: pointer;
+  }
+
+  &:hover > div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+`;
+
+export const Dropdown = styled.div`
+  display: none;
+  position: absolute;
+  background-color: black;
+  padding: 10px;
+  width: 150px;
+  top: 32px;
+  right: 10px; 
+  }
+
+  button {
+    margin-right: 10px;
+  }
+
+  p {
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+`;
+
+
+export const TextLink = styled.p`
+  color: #fff;
+  text-decoration: none;
+  margin: 10px;
+  cursor: pointer;
+  display:block;
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+`;
+
+export const Group = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const Picture = styled.button<NavbarPictureProps>`
+  background: url(${({ src }) => src});
+  background-size: contain;
+  border: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+`;
+

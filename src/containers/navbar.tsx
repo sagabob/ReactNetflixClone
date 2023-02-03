@@ -4,6 +4,7 @@ import * as ROUTES from "../constants/routes";
 
 export function NavbarContainer() {
     const [isScrolled, setScroll] = useState(false);
+    const [searchTerm, setSearchTerm] = useState("");
 
     const scrollListner = () => {
         if (window.scrollY > 50) {
@@ -17,6 +18,8 @@ export function NavbarContainer() {
             window.removeEventListener("scroll", scrollListner);
         };
     }, []);
+
+
     return (
 
         <Navbar isScrolled={isScrolled}>
@@ -38,7 +41,17 @@ export function NavbarContainer() {
                 </Navbar.LeftMenu>
             </Navbar.LeftMenuArea>
             <Navbar.RightMenuArea>
+                <Navbar.Search {...{ searchTerm, setSearchTerm }} />
                 <Navbar.RightMenuButton>Kids</Navbar.RightMenuButton>
+                <Navbar.Group>
+                    <Navbar.Profile>
+                        <Navbar.Picture src="1" />
+                        <Navbar.Dropdown>
+                            <Navbar.TextLink>Manage Profiles</Navbar.TextLink>
+                            <Navbar.TextLink>Account</Navbar.TextLink>
+                        </Navbar.Dropdown>
+                    </Navbar.Profile>
+                </Navbar.Group>
             </Navbar.RightMenuArea>
         </Navbar>
     );
