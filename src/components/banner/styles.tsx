@@ -7,16 +7,17 @@ export const Background = styled.div<BannerBackgroundProps>`
     object-fit: contain;
     margin-bottom: 20px;
     background: url(${({ src }) => (src ? src : "../images/misc/joker1.jpg")}) center center / cover;
+    display:flex;
+    flex-direction: column;    
+    justify-content: space-between;
 `;
 
-export const Content = styled.div`
-    margin-left: 30px;
-    padding-top: 140px;
-    height: 300px;
+export const Content = styled.div`   
+    height: 70%;  
 `;
 
 export const Heading = styled.h1`
-    margin-bottom: 10px;
+    
 `;
 
 export const ButtonArea = styled.div`
@@ -48,7 +49,8 @@ export const Description = styled.p`
 `;
 
 export const FadeBottom = styled.div`
-    height: 220px;
+    height: 150px;
     background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
-    
+   
+
 `;
