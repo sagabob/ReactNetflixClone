@@ -1,4 +1,4 @@
-export type Movie = {
+export type MovieType = {
     poster_path: string | null;
     adult: boolean;
     overview: string;
