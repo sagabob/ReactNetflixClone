@@ -4,7 +4,7 @@ import { MovieType } from "../data/types";
 import { useGettingDataHook } from "../hooks/useGettingDataHook";
 import { BannerProps } from "./types";
 
-export function BannerContainer({fetchUrl}: BannerProps) {
+export function BannerContainer({ fetchUrl }: BannerProps) {
 
     const movies = useGettingDataHook<MovieType>(fetchUrl);
     let selectedMovie = null;
@@ -27,12 +27,14 @@ export function BannerContainer({fetchUrl}: BannerProps) {
     ) : (
         <Banner src={`${BASE_IMAGE_URL}${selectedMovie.backdrop_path}`}>
             <Banner.Content>
-                <Banner.Heading>{selectedMovie.title || selectedMovie.original_title}</Banner.Heading>
-                <Banner.ButtonArea>
-                    <Banner.Button>Play</Banner.Button>
-                    <Banner.Button>More Info</Banner.Button>
-                </Banner.ButtonArea>
-                <Banner.Description>{selectedMovie.overview}</Banner.Description>
+                <Banner.Feature>
+                    <Banner.Heading>{selectedMovie.name}</Banner.Heading>
+                    <Banner.ButtonArea>
+                        <Banner.Button>Play</Banner.Button>
+                        <Banner.Button>More Info</Banner.Button>
+                    </Banner.ButtonArea>
+                    <Banner.Description>{selectedMovie.overview}</Banner.Description>
+                </Banner.Feature>
             </Banner.Content>
             <Banner.FadeBottom />
         </Banner>
