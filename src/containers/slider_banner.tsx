@@ -4,10 +4,10 @@ import { useGettingDataHook } from "../hooks/useGettingDataHook";
 
 import { RowProps } from "./types";
 
-export function SilderBanner({title, fetchUrl}: RowProps) {
+export function SilderBannerContainer({title, fetchUrl}: RowProps) {
 
     const movies = useGettingDataHook<MovieType>(fetchUrl);
-    console.log(movies);
+    
     return(
         <>
         <BannerSlider>
