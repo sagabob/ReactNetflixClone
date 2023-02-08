@@ -6,7 +6,7 @@ export const Background = styled.div<BannerBackgroundProps>`
     color: white;
     object-fit: contain;
     margin-bottom: 20px;
-    background: url(${({ src }) => (src ? src : "../images/misc/joker1.jpg")}) center center / cover;
+    background: url(${({ src }) => (src ? src : "../images/misc/home-bg.jpg")}) center center / cover;
     display:flex;
     flex-direction: column;    
     justify-content: space-between;
@@ -24,6 +24,13 @@ export const ButtonArea = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+`;
+
+export const Feature = styled.div`
+  padding: 150px 0 500px 0;
+  flex-direction: column;
+  align-items: normal;
+  width: 50%;
 `;
 
 export const Button = styled.button`

@@ -1,4 +1,3 @@
-import BannerSlider from "../components/banner-slider";
 import { BannerContainer } from "../containers/banner";
 import { NavbarContainer } from "../containers/navbar";
 import { SilderBannerContainer } from "../containers/slider_banner";
@@ -9,7 +8,7 @@ export default function Browse() {
     return (
         <>
             <NavbarContainer />
-            <BannerContainer />
+            <BannerContainer fetchUrl={requests.fetchNetflixOriginals} />
             <SilderBannerContainer title="Netlix Originals" fetchUrl={requests.fetchNetflixOriginals}/>
         </>
     )

@@ -9,6 +9,9 @@ export interface BannerProps extends React.ComponentPropsWithoutRef<"div"> {
 export interface BannerContentProps extends React.ComponentPropsWithoutRef<"div"> {
 }
 
+export interface BannerFeatureProps extends React.ComponentPropsWithoutRef<"div"> {
+}
+
 export interface BannerHeadingProps extends React.ComponentPropsWithoutRef<"h1"> {
 }
 
