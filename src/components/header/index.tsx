@@ -1,6 +1,7 @@
 import { Background, ButtonLink, Container, Logo } from "./styles";
 import { HeaderButtonLinkProps, HeaderFrameProps, HeaderLogoProps, HeaderProps } from "./types";
 import { Link as ReachRouterLink } from "react-router-dom";
+import { Group } from "../navbar/styles";
 
 const Header = function ({ children, src, ...restProps }: HeaderProps) {
   return <Background src={src}  {...restProps}>{children}</Background>;
@@ -23,7 +24,5 @@ Header.ButtonLink = ({ children, to, ...restProps }: HeaderButtonLinkProps) => {
 };
 
 
-Header.Group = function HeaderGroup({ children, ...restProps }) {
-  return <Group {...restProps}>{children}</Group>;
-};
+
 export default Header;

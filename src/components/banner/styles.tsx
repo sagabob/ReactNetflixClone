@@ -8,12 +8,16 @@ export const Background = styled.div<BannerBackgroundProps>`
     margin-bottom: 20px;
     background: url(${({ src }) => (src ? src : "../images/misc/home-bg.jpg")}) center top / cover;
     display:flex;
-    flex-direction: column;    
-    justify-content: space-between;
+    flex-direction: column;  
+    flex-flow: row wrap;
+    justify-content: flex-start;  
+    object-fit: contain;
+   
 `;
 
 export const Content = styled.div`   
-    height: 70%;  
+    height: 70%; 
+         
 `;
 
 export const Heading = styled.h1`
@@ -55,6 +59,15 @@ export const Button = styled.button`
     }
 `;
 
+export const DetailButton = styled(Button)`  
+    background-color: rgba(51, 51, 51, 0.4);
+    &:hover {    
+        color: #fff;  
+        background-color: rgba(51, 51, 51);
+        transition: all 0.2s;
+    }
+`;
+
 export const Description = styled.p`
     font-weight: 500;
     margin-top: 20px;
@@ -63,8 +76,13 @@ export const Description = styled.p`
 `;
 
 export const FadeBottom = styled.div`
-    height: 150px;
-    background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
-   
-
+    height: 30%;       
+    margin-top: auto;
+    width: 100%;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(37, 37, 37, 0.61),
+        #111
+      );
 `;

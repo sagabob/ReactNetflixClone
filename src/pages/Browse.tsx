@@ -9,7 +9,7 @@ export default function Browse() {
         <>
             <NavbarContainer />
             <BannerContainer fetchUrl={requests.fetchNetflixOriginals} />
-            <SilderBannerContainer title="Netlix Originals" fetchUrl={requests.fetchNetflixOriginals}/>
+            
         </>
     )
 }

@@ -1,4 +1,4 @@
-import { Background, Button, ButtonArea, Content, Description, FadeBottom, Feature, Heading } from "./styles";
+import { Background, Button, ButtonArea, Content, Description, DetailButton, FadeBottom, Feature, Heading } from "./styles";
 import { BannerBottomProps, BannerButtonAreaProps, BannerButtonProps, BannerContentProps, BannerDescriptionProps, BannerFeatureProps, BannerHeadingProps, BannerProps } from "./types";
 
 const Banner = function ({ children, src, ...restProps }: BannerProps) {
@@ -23,6 +23,10 @@ Banner.ButtonArea = ({ children, ...restProps }: BannerButtonAreaProps) => {
 
 Banner.Button = ({ children, ...restProps }: BannerButtonProps) => {
     return <Button {...restProps}>{children}</Button>;
+};
+
+Banner.DetailButton = ({ children, ...restProps }: BannerButtonProps) => {
+    return <DetailButton {...restProps}>{children}</DetailButton>;
 };
 
 Banner.Description = ({ children, ...restProps }: BannerDescriptionProps) => {
