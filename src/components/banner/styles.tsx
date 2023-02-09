@@ -6,7 +6,7 @@ export const Background = styled.div<BannerBackgroundProps>`
     color: white;
     object-fit: contain;
     margin-bottom: 20px;
-    background: url(${({ src }) => (src ? src : "../images/misc/home-bg.jpg")}) center center / cover;
+    background: url(${({ src }) => (src ? src : "../images/misc/home-bg.jpg")}) center top / cover;
     display:flex;
     flex-direction: column;    
     justify-content: space-between;
@@ -24,13 +24,17 @@ export const ButtonArea = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    margin-top:20px;
 `;
 
 export const Feature = styled.div`
-  padding: 150px 0 500px 0;
+  margin-top: 150px;
+  margin-left: 30px;
   flex-direction: column;
   align-items: normal;
-  width: 50%;
+  width: 40%;
+  align-content: space-between;
+    
 `;
 
 export const Button = styled.button`
@@ -52,7 +56,10 @@ export const Button = styled.button`
 `;
 
 export const Description = styled.p`
-    font-weight: 400;
+    font-weight: 500;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    line-height: 1.1;
 `;
 
 export const FadeBottom = styled.div`
