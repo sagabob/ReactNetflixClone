@@ -68,6 +68,10 @@ export const DetailButton = styled(Button)`
     }
 `;
 
+export const ComposedButton = styled(Button)`  
+    display: flex;
+`;
+
 export const Description = styled.p`
     font-weight: 500;
     margin-top: 20px;
@@ -85,4 +89,8 @@ export const FadeBottom = styled.div`
         rgba(37, 37, 37, 0.61),
         #111
       );
+`;
+
+export const Group = styled.div`
+    display: flex;    
 `;

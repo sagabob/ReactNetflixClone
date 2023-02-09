@@ -7,8 +7,7 @@ const HeaderSection = (props: HeaderProps) => {
     <Header src="home-bg">
       <Header.Frame>
         <Header.Logo to={ROUTES.HOME} src="/images/logo.svg" alt="Netflix" />
-        <Header.ButtonLink to={ROUTES.BROWSE}>Browse</Header.ButtonLink>
-          
+        <Header.ButtonLink to={ROUTES.BROWSE}>Browse</Header.ButtonLink>          
       </Header.Frame>
       {props.children}
     </Header>

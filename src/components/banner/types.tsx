@@ -26,3 +26,6 @@ export interface BannerDescriptionProps extends React.ComponentPropsWithoutRef<"
 
 export interface BannerBottomProps extends React.ComponentPropsWithoutRef<"div"> {
 }
+
+export interface BannerGroupProps extends React.ComponentPropsWithoutRef<"div"> {
+}
