@@ -1,4 +1,4 @@
-import { Background, Button, ButtonArea, ComposedButton, Content, Description, DetailButton, FadeBottom, Feature, Group, Heading } from "./styles";
+import { Background, Button, ButtonArea, ComposedAltButton, ComposedButton, Content, Description, DetailButton, FadeBottom, Feature, Group, Heading } from "./styles";
 import { BannerBottomProps, BannerButtonAreaProps, BannerButtonProps, BannerContentProps, BannerDescriptionProps, BannerFeatureProps, BannerGroupProps, BannerHeadingProps, BannerProps } from "./types";
 
 const Banner = function ({ children, src, ...restProps }: BannerProps) {
@@ -44,6 +44,10 @@ Banner.FadeBottom = ({ children, ...restProps }: BannerBottomProps) => {
 
 Banner.IconButton = ({ children, ...restProps }: BannerButtonProps) => {
     return <ComposedButton {...restProps}>{children}</ComposedButton>;
+};
+
+Banner.IconAltButton = ({ children, ...restProps }: BannerButtonProps) => {
+    return <ComposedAltButton {...restProps}>{children}</ComposedAltButton>;
 };
 
 export default Banner;

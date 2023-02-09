@@ -37,8 +37,7 @@ export const Feature = styled.div`
   flex-direction: column;
   align-items: normal;
   width: 40%;
-  align-content: space-between;
-    
+  align-content: space-between;    
 `;
 
 export const Button = styled.button`
@@ -63,14 +62,36 @@ export const DetailButton = styled(Button)`
     background-color: rgba(51, 51, 51, 0.4);
     &:hover {    
         color: #fff;  
-        background-color: rgba(51, 51, 51);
+        background-color: rgba(51, 51, 51, 0.8);
         transition: all 0.2s;
     }
 `;
 
 export const ComposedButton = styled(Button)`  
     display: flex;
+
+    > svg {
+        width: 1.3rem;
+        margin-right: 0.5rem;        
+    };
+
+    > span{
+        display: inline-block;
+    }
+
+    justify-content: center;
+    align-items: center;
 `;
+
+export const ComposedAltButton = styled(ComposedButton)`  
+    background-color: rgba(51, 51, 51, 0.4);
+    &:hover {    
+        color: #fff;  
+        background-color: rgba(51, 51, 51, 0.8);
+        transition: all 0.2s;
+}
+`;
+
 
 export const Description = styled.p`
     font-weight: 500;

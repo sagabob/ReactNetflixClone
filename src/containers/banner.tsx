@@ -1,3 +1,4 @@
+import {PlayFill, InfoCircle} from '@emotion-icons/bootstrap';
 import Banner from "../components/banner";
 import { BASE_IMAGE_URL } from "../data/request";
 import { MovieType } from "../data/types";
@@ -30,8 +31,8 @@ export function BannerContainer({ fetchUrl }: BannerProps) {
                 <Banner.Feature>
                     <Banner.Heading>{selectedMovie.name}</Banner.Heading>
                     <Banner.ButtonArea>
-                        <Banner.Button>Play</Banner.Button>
-                        <Banner.DetailButton>More Info</Banner.DetailButton>
+                        <Banner.IconButton><PlayFill/><span>Play</span></Banner.IconButton>
+                        <Banner.IconAltButton><InfoCircle /><span>More Info</span></Banner.IconAltButton>
                     </Banner.ButtonArea>
                     <Banner.Description>{selectedMovie.overview}</Banner.Description>
                 </Banner.Feature>
