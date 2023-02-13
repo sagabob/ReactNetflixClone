@@ -17,6 +17,7 @@ export const ButtonLink = styled(ReachRouterLink)`
   &:hover {
     background: #f40612;
   }
+  margin-right: 5px;
 `;
 
 export const Background = styled.div<HeaderBackgroundProps>`
@@ -24,6 +25,16 @@ export const Background = styled.div<HeaderBackgroundProps>`
   flex-direction: column;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.35)),
     url(${({ src }) => (src ? `../images/misc/${src}.jpg` : "../images/misc/home-bg.jpg")}) top left / cover no-repeat;
+`;
+
+export const RightMenuArea = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center; 
+    flex-grow: 1;    
+    height: 100%;
+    margin-right: 20px;
 `;
 
 export const Container = styled.div`

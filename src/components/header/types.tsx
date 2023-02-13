@@ -1,6 +1,8 @@
 
 export interface HeaderFrameProps extends React.ComponentPropsWithoutRef<"div"> {}
 
+export interface HeaderRightMenuAreaProps extends React.ComponentPropsWithoutRef<"div"> {}
+
 export interface HeaderBackgroundProps extends React.ComponentPropsWithoutRef<"div"> {
   src?: string;
 }
