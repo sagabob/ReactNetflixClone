@@ -18,7 +18,7 @@
 
 
 ## About the project
-This project is to attempt creating a clone of Netflix Website.
+This project is an attempt to create a clone of Netflix Website.
 
 ## Built With
 The application is using:
