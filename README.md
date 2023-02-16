@@ -31,6 +31,9 @@ The application is using:
 * Able to sign up users and sign in
 * The browse page is working in progress
 
+## Issues
+* Problem with refresh 
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/bob-pham-93937973/
 [tdp-logo]: tdp-logo.png
