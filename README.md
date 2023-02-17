@@ -27,9 +27,9 @@ The application is using:
 * Firebase
 
 ## Progress
-* Home, SignIn & Signup pages
+* Home, browse, signin & signup pages.
 * Able to sign up users, then signing in, finally log out.
-* The browse page is working in progress
+* The browse page is working in progress.
 
 ## Issues
 * Problem with refresh (resolved) 
