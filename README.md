@@ -11,7 +11,7 @@
   <p align="center">
     A clone of Netflix Website    
     <br />
-    <a href="https://movie-demo.tdp-store.info/" target="_blank">View Demo</a>  
+    <a href="https://tdp-movie-demo.tdp-store.info/" target="_blank">View Demo</a>  
   </p>
 </p>
 
