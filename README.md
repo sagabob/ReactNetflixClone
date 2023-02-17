@@ -28,11 +28,11 @@ The application is using:
 
 ## Progress
 * Home, SignIn & Signup pages
-* Able to sign up users and sign in
+* Able to sign up users, then signing in, finally log out.
 * The browse page is working in progress
 
 ## Issues
-* Problem with refresh 
+* Problem with refresh (resolved) 
 
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/bob-pham-93937973/
