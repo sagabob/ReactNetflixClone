@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
 import * as ROUTES from "../constants/routes";
+import { AuthContext } from "../context/auth-context";
 
 export function NavbarContainer() {
   const [isScrolled, setScroll] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const { user, logOut } = AuthContext.useContext();
+  const history = useNavigate();
 
   const scrollListner = () => {
     if (window.scrollY > 50) {
@@ -12,6 +17,14 @@ export function NavbarContainer() {
     } else setScroll(false);
   };
 
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      history(ROUTES.HOME);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     window.addEventListener("scroll", scrollListner);
     return () => {
@@ -47,6 +60,7 @@ export function NavbarContainer() {
             <Navbar.Dropdown>
               <Navbar.TextLink>Manage Profiles</Navbar.TextLink>
               <Navbar.TextLink>Account</Navbar.TextLink>
+              {user != null && <Navbar.TextLink onClick={handleLogout}>Log out</Navbar.TextLink>}
             </Navbar.Dropdown>
           </Navbar.Profile>
         </Navbar.Group>
