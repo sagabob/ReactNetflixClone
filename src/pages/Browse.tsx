@@ -7,8 +7,7 @@ export default function Browse() {
   return (
     <>
       <NavbarContainer />
-
-      <SilderBannerContainer fetchUrl={requests.fetchNetflixOriginals} title={"NetflixOriginals"} />
+      <BannerContainer fetchUrl={requests.fetchNetflixOriginals} />
     </>
   );
 }
