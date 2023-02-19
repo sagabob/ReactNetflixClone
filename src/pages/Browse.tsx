@@ -7,7 +7,9 @@ import requests from "../data/request";
 export default function Browse() {
   return (
     <>
-      <SlickContainer fetchUrl={requests.fetchNetflixOriginals} />
+      <NavbarContainer />
+      <BannerContainer fetchUrl={requests.fetchNetflixOriginals} />
+      <SlickContainer fetchUrl={requests.fetchNetflixOriginals} title="Netflix Originals" />
     </>
   );
 }

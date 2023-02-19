@@ -31,7 +31,6 @@ export function BannerContainer({ fetchUrl }: BannerProps) {
               <span>More Info</span>
             </Banner.IconAltButton>
           </Banner.ButtonArea>
-          <Banner.Description>{selectedMovie.overview}</Banner.Description>
         </Banner.Feature>
       </Banner.Content>
       <Banner.FadeBottom />

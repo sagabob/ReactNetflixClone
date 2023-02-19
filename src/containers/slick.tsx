@@ -5,7 +5,7 @@ import { MovieType } from "../data/types";
 import { useGettingDataHook } from "../hooks/useGettingDataHook";
 import { SlickProps } from "./types";
 
-export function SlickContainer({ fetchUrl }: SlickProps) {
+export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const [sliderHasMoved, setSliderHasMoved] = useState(false); // boolean to display prev arrow
   const [sliderMoving, setSliderMoving] = useState(false); // boolean for slider animation
   const [movePercentage, setMovePercentage] = useState(0); // move percentage to shift slider during animation
@@ -190,6 +190,9 @@ export function SlickContainer({ fetchUrl }: SlickProps) {
 
   return totalItems > 0 ? (
     <Slick>
+      <Slick.Heading>
+        <h2>{title}</h2>
+      </Slick.Heading>
       {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} />}
       <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration}>
         {renderSliderContent()}

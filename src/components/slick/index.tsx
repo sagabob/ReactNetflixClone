@@ -1,8 +1,16 @@
-import { Content, Control, Galery, Item, ItemImage } from "./styles";
+import { Area, Content, Control, Galery, Heading, Item, ItemImage } from "./styles";
 import { SlickContentProps, SlickControlProps, SlickItemImageProps, SlickItemProps, SlickProps } from "./types";
 import { ChevronRight, ChevronLeft } from "@emotion-icons/bootstrap";
 
 const Slick = function ({ children, ...restProps }: SlickProps) {
+  return <Area {...restProps}>{children}</Area>;
+};
+
+Slick.Heading = function ({ children, ...restProps }: SlickProps) {
+  return <Heading {...restProps}>{children}</Heading>;
+};
+
+Slick.Galery = function ({ children, ...restProps }: SlickProps) {
   return <Galery {...restProps}>{children}</Galery>;
 };
 

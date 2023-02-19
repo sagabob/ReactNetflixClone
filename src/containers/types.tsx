@@ -9,4 +9,5 @@ export interface BannerProps {
 
 export interface SlickProps {
   fetchUrl: string;
+  title: string;
 }
