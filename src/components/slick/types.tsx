@@ -18,3 +18,15 @@ export interface SlickContentProps extends React.ComponentPropsWithoutRef<"div">
 export interface SlickControlProps extends React.ComponentPropsWithoutRef<"div"> {
   direction: string;
 }
+
+export interface DotItemProps extends React.ComponentPropsWithoutRef<"div"> {
+  active: boolean;
+  colors: DotColors;
+}
+
+export interface DotColors {
+  a: string;
+  b: string;
+}
+
+export interface DotCompProps extends React.ComponentPropsWithoutRef<"div"> {}

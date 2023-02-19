@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
-import { SlickContentProps, SlickControlProps, SlickItemProps } from "./types";
+import { DotItemProps, SlickContentProps, SlickControlProps, SlickItemProps } from "./types";
 
 export const Area = styled.div`
-  margin-top: 30px;
-  position: relative;
+  margin-top: 50px;
 `;
 
 export const Heading = styled.div`
@@ -11,6 +10,24 @@ export const Heading = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 3%;
+  color: white;
+  margin: 15px 0px;
+`;
+
+export const DotArea = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const DotItem = styled.div<DotItemProps>`
+  background: ${({ active, colors }) => (active ? colors.b : colors.a)};
+  display: inline-block;
+  width: 10px;
+  height: 3px;
+  margin: 0 2px;
+  cursor: pointer;
 `;
 
 export const Item = styled.div<SlickItemProps>`

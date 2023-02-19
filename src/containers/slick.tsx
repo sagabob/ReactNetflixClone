@@ -3,6 +3,7 @@ import Slick from "../components/slick";
 import { BASE_IMAGE_URL } from "../data/request";
 import { MovieType } from "../data/types";
 import { useGettingDataHook } from "../hooks/useGettingDataHook";
+import { SlickDotContainer } from "./slick_dot";
 import { SlickProps } from "./types";
 
 export function SlickContainer({ fetchUrl, title }: SlickProps) {
@@ -131,7 +132,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     setTimeout(() => {
       setLowestVisibleIndex(newIndex);
       setSliderMoving(false);
-    }, 750);
+    }, 850);
   };
 
   const handleNext = () => {
@@ -159,7 +160,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     setTimeout(() => {
       setLowestVisibleIndex(newIndex);
       setSliderMoving(false);
-    }, 950);
+    }, 850);
 
     // slider has moved and show the previous arrow
     if (!sliderHasMoved) {
@@ -186,18 +187,19 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
 
   const calTransformOutput = calTransform();
 
-  console.log(calTransformOutput);
-
   return totalItems > 0 ? (
     <Slick>
       <Slick.Heading>
         <h2>{title}</h2>
+        <SlickDotContainer lowestVisibleIndex={lowestVisibleIndex} itemsInRow={itemsInRow} totalItems={totalItems} />
       </Slick.Heading>
-      {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} />}
-      <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration}>
-        {renderSliderContent()}
-      </Slick.Content>
-      <Slick.Control direction={"right"} onClick={handleNext} />
+      <Slick.Galery>
+        {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} />}
+        <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration}>
+          {renderSliderContent()}
+        </Slick.Content>
+        <Slick.Control direction={"right"} onClick={handleNext} />
+      </Slick.Galery>
     </Slick>
   ) : (
     <></>

@@ -1,5 +1,5 @@
-import { Area, Content, Control, Galery, Heading, Item, ItemImage } from "./styles";
-import { SlickContentProps, SlickControlProps, SlickItemImageProps, SlickItemProps, SlickProps } from "./types";
+import { Area, Content, Control, DotArea, Galery, Heading, Item, ItemImage } from "./styles";
+import { DotCompProps, SlickContentProps, SlickControlProps, SlickItemImageProps, SlickItemProps, SlickProps } from "./types";
 import { ChevronRight, ChevronLeft } from "@emotion-icons/bootstrap";
 
 const Slick = function ({ children, ...restProps }: SlickProps) {
@@ -38,6 +38,10 @@ Slick.Control = function ({ children, direction, onClick, ...restProps }: SlickC
       </div>
     </Control>
   );
+};
+
+Slick.DotArea = function ({ children, ...restProps }: DotCompProps) {
+  return <DotArea {...restProps}>{children}</DotArea>;
 };
 
 export default Slick;
