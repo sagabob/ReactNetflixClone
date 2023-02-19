@@ -28,7 +28,7 @@ export const ButtonArea = styled.div`
 `;
 
 export const Feature = styled.div`
-  margin-top: 150px;
+  margin-top: 250px;
   margin-left: 30px;
   flex-direction: column;
   align-items: normal;
@@ -45,7 +45,7 @@ export const Button = styled.button`
   padding: 0.5rem 1.5rem;
   background-color: rgba(51, 51, 51, 0.5);
   margin-right: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   &:hover {
     color: #000;
     background-color: #e6e6e6;
@@ -66,7 +66,7 @@ export const ComposedButton = styled(Button)`
   display: flex;
 
   > svg {
-    width: 1.3rem;
+    width: 1.5rem;
     margin-right: 0.5rem;
   }
 
