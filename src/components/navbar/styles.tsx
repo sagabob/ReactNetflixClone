@@ -2,20 +2,18 @@ import styled from "@emotion/styled";
 import { NavbarAreaProps, NavbarPictureProps, NavbarSearchInputProps } from "./types";
 import { Link as ReachRouterLink } from "react-router-dom";
 
-
 export const Area = styled.div<NavbarAreaProps>`
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 70px;
-    z-index: 10;
-    ${({ isScrolled }) => (isScrolled ? "background-color: #111" : "background-color: rgba(51, 51, 51, 0.1)")};
-    display: flex;    
-    justify-content: space-between;
-    align-items: center;   
-    padding: 0 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 10;
+  ${({ isScrolled }) => (isScrolled ? "background-color: #111" : "background-color: rgba(51, 51, 51, 0.1)")};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
 `;
-
 
 export const Logo = styled.img`
   height: 30px;
@@ -24,33 +22,33 @@ export const Logo = styled.img`
 `;
 
 export const LeftMenuArea = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;   
-    height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
 `;
 
 export const RightMenuArea = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center; 
-    flex-grow: 1;    
-    height: 100%;
-    margin-right: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+  margin-right: 20px;
 `;
 
 export const LeftMenu = styled.ul`
-    align-items: center;
-    display: flex;
-    margin: 0;
-    padding: 0;
+  align-items: center;
+  display: flex;
+  margin: 0;
+  padding: 0;
 `;
 
 export const LeftMenuItem = styled.li`
   display: block;
-  margin-right: 20px;  
+  margin-right: 20px;
 `;
 
 export const RightMenuButton = styled.a`
@@ -81,10 +79,10 @@ export const SearchInput = styled.input<NavbarSearchInputProps>`
   height: 30px;
   font-size: 14px;
   border-radius: 4px;
-  margin-left: ${({ active }) => (active === true ? '10px' : '0')};
-  padding: ${({ active }) => (active === true ? '0 10px' : '0')};
-  opacity: ${({ active }) => (active === true ? '1' : '0')};
-  width: ${({ active }) => (active === true ? '200px' : '0px')};
+  margin-left: ${({ active }) => (active === true ? "10px" : "0")};
+  padding: ${({ active }) => (active === true ? "0 10px" : "0")};
+  opacity: ${({ active }) => (active === true ? "1" : "0")};
+  width: ${({ active }) => (active === true ? "200px" : "0px")};
 
   &:focus {
     background-color: rgba(0, 0, 0, 0.8);
@@ -117,8 +115,8 @@ export const ButtonLink = styled(ReachRouterLink)`
   color: #fff;
   outline: none;
   border: none;
-  padding: 0.5rem 1rem;      
-  background-color: rgba(51, 51, 51, 0.5);  
+  padding: 0.5rem 1rem;
+  background-color: rgba(51, 51, 51, 0.5);
   font-size: 1rem;
   border-radius: 3px;
   &:hover {
@@ -150,8 +148,7 @@ export const Dropdown = styled.div`
   padding: 10px;
   width: 150px;
   top: 32px;
-  right: 10px; 
-  }
+  right: 10px;
 
   button {
     margin-right: 10px;
@@ -164,13 +161,12 @@ export const Dropdown = styled.div`
   }
 `;
 
-
 export const TextLink = styled.p`
   color: #fff;
   text-decoration: none;
   margin: 10px;
   cursor: pointer;
-  display:block;
+  display: block;
   &:hover {
     text-decoration: underline;
   }
@@ -193,4 +189,3 @@ export const Picture = styled.button<NavbarPictureProps>`
   height: 32px;
   cursor: pointer;
 `;
-
