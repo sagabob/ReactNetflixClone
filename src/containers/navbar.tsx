@@ -46,9 +46,11 @@ export function NavbarContainer() {
           <Navbar.LeftMenuItem>
             <Navbar.ButtonLink to={ROUTES.TVSHOWS}>Tv Shows</Navbar.ButtonLink>
           </Navbar.LeftMenuItem>
-          <Navbar.LeftMenuItem>
-            <Navbar.ButtonLink to={ROUTES.PRIVATE_MYLIST}>My list</Navbar.ButtonLink>
-          </Navbar.LeftMenuItem>
+          {user != null && (
+            <Navbar.LeftMenuItem>
+              <Navbar.ButtonLink to={ROUTES.PRIVATE_MYLIST}>My list</Navbar.ButtonLink>
+            </Navbar.LeftMenuItem>
+          )}
         </Navbar.LeftMenu>
       </Navbar.LeftMenuArea>
       <Navbar.RightMenuArea>

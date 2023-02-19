@@ -13,6 +13,6 @@ export function useGettingDataHook<TValue extends {}>(fetchUrl: string) {
     }
     fetchData();
   }, [fetchUrl]);
-  console.log(data);
+
   return data;
 }
