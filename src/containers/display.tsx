@@ -1,6 +1,6 @@
 import { Display } from "../components/display";
 
-export function FooterContainer() {
+export function DisplayContainer() {
   return (
     <Display>
       <Display.Heading>

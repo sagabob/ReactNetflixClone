@@ -9,7 +9,7 @@ export const Heading = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3%;
+  padding: 0 50px;
   color: white;
   margin: 15px 0px;
 `;
@@ -43,7 +43,7 @@ export const ItemImage = styled.img`
 
 export const Galery = styled.div`
   overflow-x: hidden;
-  padding: 0 3%;
+  padding: 0 50px;
   position: relative;
 `;
 
@@ -57,7 +57,7 @@ export const Control = styled.div<SlickControlProps>`
   position: absolute;
   top: 0;
   height: 100%;
-  width: 3%;
+  width: 50px;
 
   display: flex;
   align-items: center;

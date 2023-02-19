@@ -7,6 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Heading = styled.div`
-  margin: 0 3%;
+  margin: 0 50px;
   color: white;
+  min-height: 200px;
 `;

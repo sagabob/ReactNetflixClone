@@ -12,13 +12,13 @@ export const Area = styled.div<NavbarAreaProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 50px;
 `;
 
 export const Logo = styled.img`
   height: 30px;
   width: 100px;
-  margin-right: 30px;
+  margin-right: 50px;
 `;
 
 export const LeftMenuArea = styled.div`
@@ -148,7 +148,7 @@ export const Dropdown = styled.div`
   padding: 10px;
   width: 150px;
   top: 32px;
-  right: 10px;
+  right: 0px;
 
   button {
     margin-right: 10px;
@@ -157,7 +157,7 @@ export const Dropdown = styled.div`
   p {
     font-size: 12px;
     margin-bottom: 0;
-    margin-top: 0;
+    margin-top: 10px;
   }
 `;
 

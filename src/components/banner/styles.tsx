@@ -29,7 +29,7 @@ export const ButtonArea = styled.div`
 
 export const Feature = styled.div`
   margin-top: 250px;
-  margin-left: 30px;
+  margin-left: 50px;
   flex-direction: column;
   align-items: normal;
   align-content: space-between;
