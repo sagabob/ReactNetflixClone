@@ -59,11 +59,17 @@ export function NavbarContainer() {
         <Navbar.Group>
           <Navbar.Profile>
             <Navbar.Picture src="1" />
-            <Navbar.Dropdown>
-              <Navbar.TextLink>Manage Profiles</Navbar.TextLink>
-              <Navbar.TextLink>Account</Navbar.TextLink>
-              {user != null && <Navbar.TextLink onClick={handleLogout}>Log out</Navbar.TextLink>}
-            </Navbar.Dropdown>
+            {user != null ? (
+              <Navbar.Dropdown>
+                <Navbar.TextLink>Manage Profiles</Navbar.TextLink>
+                <Navbar.TextLink>Account</Navbar.TextLink>
+                <Navbar.TextLink onClick={handleLogout}>Log out</Navbar.TextLink>
+              </Navbar.Dropdown>
+            ) : (
+              <Navbar.Dropdown>
+                <Navbar.TextLink>Guest Account</Navbar.TextLink>
+              </Navbar.Dropdown>
+            )}
           </Navbar.Profile>
         </Navbar.Group>
       </Navbar.RightMenuArea>
