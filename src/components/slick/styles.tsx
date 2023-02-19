@@ -37,8 +37,8 @@ export const Item = styled.div<SlickItemProps>`
 `;
 
 export const ItemImage = styled.img`
-  height: 100%;
-  width: 100%;
+  max-width: 100%;
+  height: auto;
 `;
 
 export const Galery = styled.div`

@@ -7,6 +7,8 @@ import { AuthProvider } from "./context/auth-provider";
 import SignUp from "./pages/SignUp";
 import Browse from "./pages/Browse";
 import SignIn from "./pages/SignIn";
+import BrowseTvShows from "./pages/BrowseTvShow";
+import BrowseMovies from "./pages/BrowseMovies";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path={ROUTES.SIGN_UP} element={<SignUp />} />
           <Route path={ROUTES.SIGN_IN} element={<SignIn />} />
           <Route path={ROUTES.BROWSE} element={<Browse />} />
+          <Route path={ROUTES.TVSHOWS} element={<BrowseTvShows />} />
+          <Route path={ROUTES.MOVIES} element={<BrowseMovies />} />
         </Routes>
       </Router>
     </AuthProvider>

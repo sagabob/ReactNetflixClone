@@ -90,7 +90,12 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     const sliderContents = [];
     for (let index of indexToDisplay) {
       sliderContents.push(
-        <Slick.Item src={`${BASE_IMAGE_URL}${selectedMovies[index].backdrop_path}`} title={selectedMovies[index].name} key={`${selectedMovies[index].id}-${index}`} width={100 / itemsInRow} />
+        <Slick.Item
+          src={selectedMovies[index].backdrop_path != null ? `${BASE_IMAGE_URL}${selectedMovies[index].backdrop_path}` : "images/misc/home-bg.jpg"}
+          title={selectedMovies[index].name}
+          key={`${selectedMovies[index].id}-${index}`}
+          width={100 / itemsInRow}
+        />
       );
     }
 

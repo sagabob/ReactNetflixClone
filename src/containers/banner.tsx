@@ -20,7 +20,7 @@ export function BannerContainer({ fetchUrl }: BannerProps) {
     <Banner src={`${BASE_IMAGE_URL}${selectedMovie.backdrop_path}`}>
       <Banner.Content>
         <Banner.Feature>
-          <Banner.Heading>{selectedMovie.name}</Banner.Heading>
+          <Banner.Heading>{selectedMovie.name || selectedMovie.title}</Banner.Heading>
           <Banner.ButtonArea>
             <Banner.IconButton>
               <PlayFill />
