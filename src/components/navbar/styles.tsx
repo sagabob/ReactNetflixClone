@@ -112,6 +112,7 @@ export const ButtonLink = styled(ReachRouterLink)`
   background-color: #e50914;
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
   color: #fff;
   outline: none;
   border: none;

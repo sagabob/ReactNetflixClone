@@ -51,6 +51,7 @@ export const Button = styled.button`
     background-color: #e6e6e6;
     transition: all 0.2s;
   }
+  white-space: nowrap;
 `;
 
 export const DetailButton = styled(Button)`
