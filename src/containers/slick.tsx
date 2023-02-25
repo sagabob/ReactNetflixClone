@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, TransitionEvent } from "react";
 import Slick from "../components/slick";
 import { BASE_IMAGE_URL } from "../data/request";
 import { MovieType } from "../data/types";
@@ -13,6 +13,8 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const [sliderMoveDirection, setSliderMoveDirection] = useState(""); // direction of movement of animation
   const [lowestVisibleIndex, setLowestVisibleIndex] = useState(0); // lowest visible index of slider content
   const [itemsInRow, setItemsInRow] = useState(5); // lowest visible index of slider content
+
+  const [calculatedIndex, setCalculatedIndex] = useState(0); //store caledulated index
 
   const movies = useGettingDataHook<MovieType>(fetchUrl);
 
@@ -82,10 +84,10 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
       const trailingIndex = indexToDisplay[indexToDisplay.length - 1] === totalItems - 1 ? 0 : indexToDisplay[indexToDisplay.length - 1] + 1;
 
       indexToDisplay.push(trailingIndex);
-    }
 
-    const leadingIndex = indexToDisplay[0] === 0 ? totalItems - 1 : indexToDisplay[0] - 1;
-    indexToDisplay.unshift(leadingIndex);
+      const leadingIndex = indexToDisplay[0] === 0 ? totalItems - 1 : indexToDisplay[0] - 1;
+      indexToDisplay.unshift(leadingIndex);
+    }
 
     const sliderContents = [];
     for (let index of indexToDisplay) {
@@ -133,11 +135,6 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     setSliderMoving(true);
     setSliderMoveDirection("left");
     setMovePercentage(newMovePercentage);
-
-    setTimeout(() => {
-      setLowestVisibleIndex(newIndex);
-      setSliderMoving(false);
-    }, 850);
   };
 
   const handleNext = () => {
@@ -161,11 +158,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     setSliderMoving(true);
     setSliderMoveDirection("right");
     setMovePercentage(newMovePercentage);
-
-    setTimeout(() => {
-      setLowestVisibleIndex(newIndex);
-      setSliderMoving(false);
-    }, 850);
+    setCalculatedIndex(newIndex);
 
     // slider has moved and show the previous arrow
     if (!sliderHasMoved) {
@@ -190,6 +183,14 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     return { translateXValue: translateXValue, transDuration: transDuration };
   };
 
+  const handleTransitionEnd = (event: TransitionEvent) => {
+    //apply the state change on the main div
+    if (event.target == event.currentTarget) {
+      setLowestVisibleIndex(calculatedIndex);
+      setSliderMoving(false);
+    }
+  };
+
   const calTransformOutput = calTransform();
 
   return totalItems > 0 ? (
@@ -200,7 +201,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
       </Slick.Heading>
       <Slick.Galery>
         {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} />}
-        <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration}>
+        <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration} onTransitionEnd={handleTransitionEnd}>
           {renderSliderContent()}
         </Slick.Content>
         <Slick.Control direction={"right"} onClick={handleNext} />
