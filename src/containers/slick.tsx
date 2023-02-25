@@ -74,6 +74,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     setSliderMoving(true);
     setSliderMoveDirection("left");
     setMovePercentage(newMovePercentage);
+    setCalculatedIndex(newIndex);
   };
 
   const handleNext = () => {
