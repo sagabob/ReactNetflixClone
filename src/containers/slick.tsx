@@ -1,10 +1,12 @@
 import { useEffect, useState, TransitionEvent } from "react";
 import Slick from "../components/slick";
-import { BASE_IMAGE_URL } from "../data/request";
 import { MovieType } from "../data/types";
 import { useGettingDataHook } from "../hooks/useGettingDataHook";
+import { SlickContentContainer } from "./slick_content";
 import { SlickDotContainer } from "./slick_dot";
 import { SlickProps } from "./types";
+
+const TRANSITION_DURATION = 800;
 
 export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const [sliderHasMoved, setSliderHasMoved] = useState(false); // boolean to display prev arrow
@@ -16,17 +18,18 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
 
   const [calculatedIndex, setCalculatedIndex] = useState(0); //store caledulated index
 
-  const movies = useGettingDataHook<MovieType>(fetchUrl);
+  const rawMovies = useGettingDataHook<MovieType>(fetchUrl);
 
-  let selectedMovies: MovieType[] = [];
-  if (movies !== undefined && Array.isArray(movies)) {
-    selectedMovies = movies as MovieType[];
+  let movies: MovieType[] = [];
+  if (rawMovies !== undefined && Array.isArray(rawMovies)) {
+    movies = rawMovies as MovieType[];
   }
 
-  const totalItems = selectedMovies.length;
+  const totalItems = movies.length;
 
   useEffect(() => {
     handleWindowResize(window);
+
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
@@ -35,80 +38,16 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   });
 
   // handle window resize and sets items in row
-  const handleWindowResize = (e: any) => {
+  const handleWindowResize = (e: Event | Window) => {
     if (window.innerWidth > 1440) {
       setItemsInRow(6);
     } else if (window.innerWidth >= 1000) {
       setItemsInRow(5);
-    } else if (window.innerWidth < 1000) {
+    } else if (window.innerWidth < 1000 && window.innerWidth >= 600) {
       setItemsInRow(4);
+    } else if (window.innerWidth <= 600) {
+      setItemsInRow(3);
     }
-  };
-
-  const renderSliderContent = () => {
-    // gets the indexes to be displayed
-    const left = [];
-    const mid = [];
-    const right = [];
-
-    for (let i = 0; i < itemsInRow; i++) {
-      // left
-      if (sliderHasMoved) {
-        if (lowestVisibleIndex + i - itemsInRow < 0) {
-          left.push(totalItems - itemsInRow + lowestVisibleIndex + i);
-        } else {
-          left.push(i + lowestVisibleIndex - itemsInRow); // issue here
-        }
-      }
-
-      // mid
-      if (i + lowestVisibleIndex >= totalItems) {
-        mid.push(i + lowestVisibleIndex - totalItems);
-      } else {
-        mid.push(i + lowestVisibleIndex);
-      }
-
-      // right
-      if (i + lowestVisibleIndex + itemsInRow >= totalItems) {
-        right.push(i + lowestVisibleIndex + itemsInRow - totalItems);
-      } else {
-        right.push(i + lowestVisibleIndex + itemsInRow);
-      }
-    }
-
-    // combine indexes
-    const indexToDisplay = [...left, ...mid, ...right];
-
-    // add on leading and trailing indexes for peek image when sliding
-    if (sliderHasMoved) {
-      const trailingIndex = indexToDisplay[indexToDisplay.length - 1] === totalItems - 1 ? 0 : indexToDisplay[indexToDisplay.length - 1] + 1;
-
-      indexToDisplay.push(trailingIndex);
-
-      const leadingIndex = indexToDisplay[0] === 0 ? totalItems - 1 : indexToDisplay[0] - 1;
-      indexToDisplay.unshift(leadingIndex);
-    }
-
-    const sliderContents = [];
-    for (let index of indexToDisplay) {
-      sliderContents.push(
-        <Slick.Item
-          src={selectedMovies[index].backdrop_path != null ? `${BASE_IMAGE_URL}${selectedMovies[index].backdrop_path}` : "images/misc/home-bg.jpg"}
-          title={selectedMovies[index].name}
-          key={`${selectedMovies[index].id}-${index}`}
-          width={100 / itemsInRow}
-        />
-      );
-    }
-
-    // adds empty divs to take up appropriate spacing when slider at initial position
-    if (!sliderHasMoved) {
-      for (let i = 0; i < itemsInRow; i++) {
-        sliderContents.unshift(<Slick.EmptyItem width={100 / itemsInRow} key={i} />);
-      }
-    }
-
-    return sliderContents;
   };
 
   const handlePrev = () => {
@@ -168,7 +107,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
 
   const calTransform = () => {
     let translateXValue = 0;
-    let transDuration = 750;
+    let transDuration = TRANSITION_DURATION;
     if (sliderMoving) {
       if (sliderMoveDirection === "right") {
         translateXValue = -(100 + movePercentage + 100 / itemsInRow);
@@ -202,7 +141,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
       <Slick.Galery>
         {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} />}
         <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration} onTransitionEnd={handleTransitionEnd}>
-          {renderSliderContent()}
+          <SlickContentContainer {...{ lowestVisibleIndex, itemsInRow, totalItems, sliderHasMoved, movies }} />
         </Slick.Content>
         <Slick.Control direction={"right"} onClick={handleNext} />
       </Slick.Galery>
