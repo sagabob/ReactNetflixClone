@@ -1,8 +1,8 @@
-import { useEffect, useState, TransitionEvent } from "react";
+import { useEffect, useState, TransitionEvent, useRef } from "react";
 import Slick from "../components/slick";
 import { MovieType } from "../data/types";
 import { useGettingDataHook } from "../hooks/useGettingDataHook";
-import { SlickContentContainer } from "./slick_content";
+import SlickContentContainer from "./slick_content";
 import { SlickDotContainer } from "./slick_dot";
 import { SlickProps } from "./types";
 
@@ -17,8 +17,13 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const [itemsInRow, setItemsInRow] = useState(5); // lowest visible index of slider content
 
   const [calculatedIndex, setCalculatedIndex] = useState(0); //store caledulated index
+  const [calHeight, setCalHeight] = useState(200);
+  const [calTop, setCalTop] = useState(50);
 
   const rawMovies = useGettingDataHook<MovieType>(fetchUrl);
+
+  const contentImageRef = useRef<HTMLImageElement>(null);
+  const contentDivRef = useRef<HTMLDivElement>(null);
 
   let movies: MovieType[] = [];
   if (rawMovies !== undefined && Array.isArray(rawMovies)) {
@@ -28,6 +33,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const totalItems = movies.length;
 
   useEffect(() => {
+    setControlConfig();
     handleWindowResize(window);
 
     window.addEventListener("resize", handleWindowResize);
@@ -36,6 +42,16 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
       window.removeEventListener("resize", handleWindowResize);
     };
   });
+
+  // calculate the current height of the tiles and their top to parent
+  const setControlConfig = () => {
+    if (contentImageRef.current) {
+      setCalHeight(contentImageRef.current.getBoundingClientRect().height);
+    }
+    if (contentDivRef.current) {
+      setCalTop(contentDivRef.current.offsetTop);
+    }
+  };
 
   // handle window resize and sets items in row
   const handleWindowResize = (e: Event | Window) => {
@@ -123,6 +139,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     return { translateXValue: translateXValue, transDuration: transDuration };
   };
 
+  // callback when the transform ends
   const handleTransitionEnd = (event: TransitionEvent) => {
     //apply the state change on the main div
     if (event.target == event.currentTarget) {
@@ -140,11 +157,13 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
         <SlickDotContainer lowestVisibleIndex={lowestVisibleIndex} itemsInRow={itemsInRow} totalItems={totalItems} />
       </Slick.Heading>
       <Slick.Galery>
-        {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} />}
-        <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration} onTransitionEnd={handleTransitionEnd}>
-          <SlickContentContainer {...{ lowestVisibleIndex, itemsInRow, totalItems, sliderHasMoved, movies }} />
-        </Slick.Content>
-        <Slick.Control direction={"right"} onClick={handleNext} />
+        {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} currentHeight={calHeight} currentTop={calTop} />}
+        <div ref={contentDivRef}>
+          <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration} onTransitionEnd={handleTransitionEnd}>
+            <SlickContentContainer {...{ lowestVisibleIndex, itemsInRow, totalItems, sliderHasMoved, movies }} ref={contentImageRef} />
+          </Slick.Content>
+        </div>
+        <Slick.Control direction={"right"} onClick={handleNext} currentHeight={calHeight} currentTop={calTop} />
       </Slick.Galery>
     </Slick>
   ) : (
