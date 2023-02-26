@@ -11,7 +11,7 @@ export const Heading = styled.div`
   align-items: center;
   padding: 0 50px;
   color: white;
-  margin: 15px 0px;
+  margin: -20px 0px;
 `;
 
 export const DotArea = styled.div`
@@ -32,18 +32,25 @@ export const DotItem = styled.div<DotItemProps>`
 
 export const Item = styled.div<SlickItemProps>`
   display: inline-block;
-  height: 100%;
+  max-height: 100%;
   width: ${({ width }) => `${width}%`};
+  transition: transform 0.3s; /* Animation */
+
+  &:hover,
+  &:active {
+    transform: scale(1.5);
+  }
 `;
 
 export const ItemImage = styled.img`
   max-width: 100%;
-  height: auto;
+  max-height: 100%;
+  object-fit: contain;
 `;
 
 export const Galery = styled.div`
   overflow-x: hidden;
-  padding: 0 50px;
+  padding: 50px 50px;
   position: relative;
 `;
 
@@ -55,9 +62,9 @@ export const Content = styled.div<SlickContentProps>`
 
 export const Control = styled.div<SlickControlProps>`
   position: absolute;
-  top: 0;
-  height: 100%;
-  width: 50px;
+  ${({ currentTop }) => (currentTop === null ? "top: 0px" : `top: ${currentTop}px`)};
+
+  ${({ currentHeight }) => (currentHeight === null ? "height: 200px" : `height: ${currentHeight}px`)};
 
   display: flex;
   align-items: center;
@@ -67,6 +74,7 @@ export const Control = styled.div<SlickControlProps>`
   cursor: pointer;
   color: #ffffff;
   z-index: 10;
+  width: 50px;
 
   ${({ direction }) => (direction == "left" ? "left: 0" : "right: 0")};
 

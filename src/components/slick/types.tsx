@@ -17,6 +17,8 @@ export interface SlickContentProps extends React.ComponentPropsWithoutRef<"div">
 
 export interface SlickControlProps extends React.ComponentPropsWithoutRef<"div"> {
   direction: string;
+  currentTop: number | null;
+  currentHeight: number | null;
 }
 
 export interface DotItemProps extends React.ComponentPropsWithoutRef<"div"> {
