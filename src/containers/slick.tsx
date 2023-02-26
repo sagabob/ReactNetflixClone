@@ -18,7 +18,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
 
   const [calculatedIndex, setCalculatedIndex] = useState(0); //store caledulated index
   const [calHeight, setCalHeight] = useState(200);
-  const [calTop, setCalTop] = useState(50);
+  const [calTop, setCalTop] = useState(30);
 
   const rawMovies = useGettingDataHook<MovieType>(fetchUrl);
 
