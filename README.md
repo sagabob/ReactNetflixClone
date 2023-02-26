@@ -31,7 +31,7 @@ The application is using:
 * Able to sign up users, then signing in, finally log out.
 * The browse page has a big banner & sliders, but still working in progress.
 * Implement protected route such as Mylist (only visible for authenticated users).
-* Will automatically redirect to Browse page for authenticated users.
+* Automatically redirect to Browse page for authenticated users.
 
 ## Issues
 * Problem with refresh (resolved) 
