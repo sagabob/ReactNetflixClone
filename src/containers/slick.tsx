@@ -2,7 +2,7 @@ import { useEffect, useState, TransitionEvent, useRef } from "react";
 import Slick from "../components/slick";
 import { MovieType } from "../data/types";
 import { useGettingDataHook } from "../hooks/useGettingDataHook";
-import { SlickContentContainer } from "./slick_content";
+import SlickContentContainer from "./slick_content";
 import { SlickDotContainer } from "./slick_dot";
 import { SlickProps } from "./types";
 
@@ -22,6 +22,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
 
   const rawMovies = useGettingDataHook<MovieType>(fetchUrl);
 
+  const contentImageRef = useRef<HTMLImageElement>(null);
   const contentDivRef = useRef<HTMLDivElement>(null);
 
   let movies: MovieType[] = [];
@@ -44,8 +45,10 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
 
   // calculate the current height of the tiles and their top to parent
   const setControlConfig = () => {
+    if (contentImageRef.current) {
+      setCalHeight(contentImageRef.current.getBoundingClientRect().height);
+    }
     if (contentDivRef.current) {
-      setCalHeight(contentDivRef.current.getBoundingClientRect().height);
       setCalTop(contentDivRef.current.offsetTop);
     }
   };
@@ -157,7 +160,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
         {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} currentHeight={calHeight} currentTop={calTop} />}
         <div ref={contentDivRef}>
           <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration} onTransitionEnd={handleTransitionEnd}>
-            <SlickContentContainer {...{ lowestVisibleIndex, itemsInRow, totalItems, sliderHasMoved, movies }} />
+            <SlickContentContainer {...{ lowestVisibleIndex, itemsInRow, totalItems, sliderHasMoved, movies }} ref={contentImageRef} />
           </Slick.Content>
         </div>
         <Slick.Control direction={"right"} onClick={handleNext} currentHeight={calHeight} currentTop={calTop} />

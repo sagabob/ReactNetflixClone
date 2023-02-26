@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { DotItemProps, SlickContentProps, SlickControlProps, SlickItemProps } from "./types";
 
 export const Area = styled.div`
-  margin-top: 50px;
+  margin-top: -20px;
 `;
 
 export const Heading = styled.div`
@@ -11,7 +11,7 @@ export const Heading = styled.div`
   align-items: center;
   padding: 0 50px;
   color: white;
-  margin: -20px 0px;
+  margin: -10px 0px;
 `;
 
 export const DotArea = styled.div`
@@ -32,26 +32,74 @@ export const DotItem = styled.div<DotItemProps>`
 
 export const Item = styled.div<SlickItemProps>`
   display: inline-block;
-  max-height: 100%;
+  height: auto;
   width: ${({ width }) => `${width}%`};
-  transition: transform 0.3s; /* Animation */
+  transition: transform 0.3s ease; /* Animation */
 
   &:hover,
   &:active {
     transform: scale(1.5);
+    > div {
+      visibility: visible;
+      transition: visibility 0.3s linear;
+    }
+
+    > h3 {
+      visibility: visible;
+      transition: visibility 0.3s linear;
+    }
   }
+`;
+
+export const ItemHeading = styled.h3`
+  position: relative;
+  left: 10px;
+  top: -40px;
+  width: 100%;
+  visibility: hidden;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+`;
+
+export const ItemDetail = styled.div`
+  position: relative;
+  left: 0;
+  top: -30px;
+  height: 50px;
+  width: 100%;
+  background-color: #333333;
+  visibility: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3%;
+`;
+
+export const ItemDetailLeft = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  > span {
+    margin-right: 7px;
+  }
+`;
+
+export const ItemDetailRight = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 export const ItemImage = styled.img`
   max-width: 100%;
-  max-height: 100%;
+  height: auto;
   object-fit: contain;
 `;
 
 export const Galery = styled.div`
-  overflow-x: hidden;
-  padding: 50px 50px;
-  position: relative;
+  overflow: hidden;
+  padding: 30px 50px;
 `;
 
 export const Content = styled.div<SlickContentProps>`

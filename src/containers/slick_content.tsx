@@ -1,8 +1,9 @@
+import { forwardRef } from "react";
 import Slick from "../components/slick";
 import { BASE_IMAGE_URL } from "../data/request";
 import { SlickContentProps } from "./types";
 
-export function SlickContentContainer({ lowestVisibleIndex, itemsInRow, sliderHasMoved, movies }: SlickContentProps) {
+const SlickContentContainer = forwardRef<HTMLImageElement, SlickContentProps>(({ lowestVisibleIndex, itemsInRow, sliderHasMoved, movies }, ref) => {
   // gets the indexes to be displayed
   const left = [];
   const mid = [];
@@ -48,16 +49,27 @@ export function SlickContentContainer({ lowestVisibleIndex, itemsInRow, sliderHa
   }
 
   const sliderContents = [];
-  for (let index of indexToDisplay) {
+  for (let i = 0; i < indexToDisplay.length - 1; i++) {
+    let index = indexToDisplay[i];
     sliderContents.push(
       <Slick.Item
         src={movies[index].backdrop_path != null ? `${BASE_IMAGE_URL}${movies[index].backdrop_path}` : "images/misc/home-bg.jpg"}
-        title={movies[index].name}
+        title={movies[index].name || movies[index].title}
         key={`${movies[index].id}-${index}`}
         width={100 / itemsInRow}
       />
     );
   }
+
+  sliderContents.push(
+    <Slick.ItemRef
+      src={movies[indexToDisplay[indexToDisplay.length - 1]].backdrop_path != null ? `${BASE_IMAGE_URL}${movies[indexToDisplay[indexToDisplay.length - 1]].backdrop_path}` : "images/misc/home-bg.jpg"}
+      title={movies[indexToDisplay[indexToDisplay.length - 1]].name || movies[indexToDisplay[indexToDisplay.length - 1]].title}
+      key={`${movies[indexToDisplay[indexToDisplay.length - 1]].id}-${indexToDisplay[indexToDisplay.length - 1]}`}
+      width={100 / itemsInRow}
+      ref={ref}
+    />
+  );
 
   // adds empty divs to take up appropriate spacing when slider at initial position
   if (!sliderHasMoved) {
@@ -67,4 +79,6 @@ export function SlickContentContainer({ lowestVisibleIndex, itemsInRow, sliderHa
   }
 
   return <>{sliderContents}</>;
-}
+});
+
+export default SlickContentContainer;
