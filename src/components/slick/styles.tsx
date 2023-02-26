@@ -11,7 +11,7 @@ export const Heading = styled.div`
   align-items: center;
   padding: 0 50px;
   color: white;
-  margin: -10px 0px;
+  margin: -20px 0px;
 `;
 
 export const DotArea = styled.div`
@@ -121,7 +121,7 @@ export const Control = styled.div<SlickControlProps>`
   font-size: 3rem;
   cursor: pointer;
   color: #ffffff;
-  z-index: 10;
+  z-index: 20;
   width: 50px;
 
   ${({ direction }) => (direction == "left" ? "left: 0" : "right: 0")};

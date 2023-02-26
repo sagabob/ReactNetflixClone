@@ -12,7 +12,7 @@ export const Background = styled.div<BannerBackgroundProps>`
   flex-flow: row wrap;
   justify-content: flex-start;
   object-fit: contain;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `;
 
 export const Content = styled.div`
