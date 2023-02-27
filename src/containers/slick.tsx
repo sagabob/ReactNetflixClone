@@ -118,6 +118,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     setCalculatedIndex(newIndex);
 
     //Important, it needs to wait the first transition to be kicked off first
+    //Technically, we should put it in the event such as onTransitionStart but there is no such thing
     if (!sliderHasMoved) {
       setTimeout(() => {
         setSliderHasMoved(true);
@@ -148,10 +149,6 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     if (event.target == event.currentTarget) {
       setLowestVisibleIndex(calculatedIndex);
       setSliderMoving(false);
-      // slider has moved and show the previous arrow
-      if (!sliderHasMoved) {
-        setSliderHasMoved(true);
-      }
     }
   };
 

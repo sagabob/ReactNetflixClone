@@ -4,7 +4,6 @@ import { BASE_IMAGE_URL } from "../data/request";
 import { SlickContentProps } from "./types";
 
 const SlickContentContainer = forwardRef<HTMLImageElement, SlickContentProps>(({ lowestVisibleIndex, itemsInRow, sliderHasMoved, movies }, ref) => {
-  console.log(`enter slick container ${lowestVisibleIndex}`);
   // gets the indexes to be displayed
 
   const left = [];
@@ -79,8 +78,6 @@ const SlickContentContainer = forwardRef<HTMLImageElement, SlickContentProps>(({
       sliderContents.unshift(<Slick.EmptyItem width={100 / itemsInRow} key={i} />);
     }
   }
-
-  console.log(indexToDisplay);
 
   return <>{sliderContents}</>;
 });
