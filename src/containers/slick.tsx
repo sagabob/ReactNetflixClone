@@ -117,6 +117,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     setMovePercentage(newMovePercentage);
     setCalculatedIndex(newIndex);
 
+    //Important, it needs to wait the first transition to be kicked off first
     if (!sliderHasMoved) {
       setTimeout(() => {
         setSliderHasMoved(true);
