@@ -5,6 +5,7 @@ import { SlickContentProps } from "./types";
 
 const SlickContentContainer = forwardRef<HTMLImageElement, SlickContentProps>(({ lowestVisibleIndex, itemsInRow, sliderHasMoved, movies }, ref) => {
   // gets the indexes to be displayed
+
   const left = [];
   const mid = [];
   const right = [];

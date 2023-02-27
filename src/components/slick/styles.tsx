@@ -110,7 +110,7 @@ export const Content = styled.div<SlickContentProps>`
 
 export const Control = styled.div<SlickControlProps>`
   position: absolute;
-  ${({ currentTop }) => (currentTop === null ? "top: 0px" : `top: ${currentTop}px`)};
+  ${({ currentTop }) => (currentTop === null ? "top: 30px" : `top: ${currentTop}px`)};
 
   ${({ currentHeight }) => (currentHeight === null ? "height: 200px" : `height: ${currentHeight}px`)};
 

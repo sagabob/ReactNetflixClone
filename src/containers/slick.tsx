@@ -6,7 +6,7 @@ import SlickContentContainer from "./slick_content";
 import { SlickDotContainer } from "./slick_dot";
 import { SlickProps } from "./types";
 
-const TRANSITION_DURATION = 800;
+const TRANSITION_DURATION = 1000;
 
 export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const [sliderHasMoved, setSliderHasMoved] = useState(false); // boolean to display prev arrow
@@ -18,7 +18,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
 
   const [calculatedIndex, setCalculatedIndex] = useState(0); //store caledulated index
   const [calHeight, setCalHeight] = useState(200);
-  const [calTop, setCalTop] = useState(50);
+  const [calTop, setCalTop] = useState(30);
 
   const rawMovies = useGettingDataHook<MovieType>(fetchUrl);
 
@@ -46,7 +46,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   // calculate the current height of the tiles and their top to parent
   const setControlConfig = () => {
     if (contentImageRef.current) {
-      setCalHeight(contentImageRef.current.getBoundingClientRect().height);
+      if (contentImageRef.current.getBoundingClientRect().height > 0) setCalHeight(contentImageRef.current.getBoundingClientRect().height);
     }
     if (contentDivRef.current) {
       setCalTop(contentDivRef.current.offsetTop);
@@ -94,6 +94,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   };
 
   const handleNext = () => {
+    console.log(`enter handle next ${lowestVisibleIndex}`);
     let newIndex = 0;
     if (lowestVisibleIndex === totalItems - itemsInRow) {
       newIndex = 0;
@@ -116,9 +117,12 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     setMovePercentage(newMovePercentage);
     setCalculatedIndex(newIndex);
 
-    // slider has moved and show the previous arrow
+    //Important, it needs to wait the first transition to be kicked off first
+    //Technically, we should put it in the event such as onTransitionStart but there is no such thing
     if (!sliderHasMoved) {
-      setSliderHasMoved(true);
+      setTimeout(() => {
+        setSliderHasMoved(true);
+      }, TRANSITION_DURATION / 5);
     }
   };
 
