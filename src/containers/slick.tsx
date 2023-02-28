@@ -33,9 +33,14 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const totalItems = movies.length;
 
   useEffect(() => {
-    setControlConfig();
     handleWindowResize(window);
 
+    //a temporary hack until we find better solution
+    setTimeout(function () {
+      setControlConfigTop();
+    }, TRANSITION_DURATION / 5);
+
+    setControlConfigHeight();
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
@@ -44,14 +49,15 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   });
 
   // calculate the current height of the tiles and their top to parent
-  const setControlConfig = () => {
-    if (contentImageRef.current) {
-      console.log(`Height for ${title}: ${contentImageRef.current.getBoundingClientRect().height}`);
-      if (contentImageRef.current.getBoundingClientRect().height > 0) setCalHeight(contentImageRef.current.getBoundingClientRect().height);
-    }
+  const setControlConfigTop = () => {
     if (contentDivRef.current) {
-      console.log(`Top for ${title}: ${contentDivRef.current.offsetTop}`);
       setCalTop(contentDivRef.current.offsetTop);
+    }
+  };
+
+  const setControlConfigHeight = () => {
+    if (contentImageRef.current) {
+      if (contentImageRef.current.getBoundingClientRect().height > 0) setCalHeight(contentImageRef.current.getBoundingClientRect().height);
     }
   };
 
