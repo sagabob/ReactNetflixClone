@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { NavbarAreaProps, NavbarPictureProps, NavbarSearchInputProps } from "./types";
-import { Link as ReachRouterLink } from "react-router-dom";
+import { NavLink as ReachRouterLink } from "react-router-dom";
 
 export const Area = styled.div<NavbarAreaProps>`
   position: fixed;
