@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import { NavbarAreaProps, NavbarPictureProps, NavbarSearchInputProps } from "./types";
-import { Link as ReachRouterLink } from "react-router-dom";
+import { NavLink as ReachRouterLink } from "react-router-dom";
 
 export const Area = styled.div<NavbarAreaProps>`
   position: fixed;
   top: 0;
   width: 100%;
   height: 70px;
-  z-index: 10;
+  z-index: 20;
   ${({ isScrolled }) => (isScrolled ? "background-color: #111" : "background-color: rgba(51, 51, 51, 0.1)")};
   display: flex;
   justify-content: space-between;
