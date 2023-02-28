@@ -7,7 +7,7 @@ export const Area = styled.div<NavbarAreaProps>`
   top: 0;
   width: 100%;
   height: 70px;
-  z-index: 10;
+  z-index: 20;
   ${({ isScrolled }) => (isScrolled ? "background-color: #111" : "background-color: rgba(51, 51, 51, 0.1)")};
   display: flex;
   justify-content: space-between;

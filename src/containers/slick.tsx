@@ -46,9 +46,11 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   // calculate the current height of the tiles and their top to parent
   const setControlConfig = () => {
     if (contentImageRef.current) {
+      console.log(`Height for ${title}: ${contentImageRef.current.getBoundingClientRect().height}`);
       if (contentImageRef.current.getBoundingClientRect().height > 0) setCalHeight(contentImageRef.current.getBoundingClientRect().height);
     }
     if (contentDivRef.current) {
+      console.log(`Top for ${title}: ${contentDivRef.current.offsetTop}`);
       setCalTop(contentDivRef.current.offsetTop);
     }
   };
@@ -162,7 +164,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
       </Slick.Heading>
       <Slick.Galery>
         {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} currentHeight={calHeight} currentTop={calTop} />}
-        <div ref={contentDivRef}>
+        <div ref={contentDivRef} id={title}>
           <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration} onTransitionEnd={handleTransitionEnd}>
             <SlickContentContainer {...{ lowestVisibleIndex, itemsInRow, totalItems, sliderHasMoved, movies }} ref={contentImageRef} />
           </Slick.Content>
