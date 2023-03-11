@@ -6,7 +6,7 @@ import SlickContentContainer from "./slick_content";
 import { SlickDotContainer } from "./slick_dot";
 import { SlickProps } from "./types";
 
-const TRANSITION_DURATION = 1000;
+const TRANSITION_DURATION = 1200;
 
 export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const [sliderHasMoved, setSliderHasMoved] = useState(false); // boolean to display prev arrow

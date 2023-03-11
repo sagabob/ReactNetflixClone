@@ -39,14 +39,17 @@ export const Item = styled.div<SlickItemProps>`
   &:hover,
   &:active {
     transform: scale(1.5);
+    transition-delay: 0.5s;
     > div {
       visibility: visible;
       transition: visibility 0.3s linear;
+      transition-delay: 0.5s;
     }
 
     > h3 {
       visibility: visible;
       transition: visibility 0.3s linear;
+      transition-delay: 0.5s;
     }
   }
 `;
