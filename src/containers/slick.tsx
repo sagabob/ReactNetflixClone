@@ -20,6 +20,8 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const [calHeight, setCalHeight] = useState(200);
   const [calTop, setCalTop] = useState(30);
 
+  const [showController, setShowController] = useState(false);
+
   const rawMovies = useGettingDataHook<MovieType>(fetchUrl);
 
   const contentImageRef = useRef<HTMLImageElement>(null);
@@ -41,12 +43,21 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     }, TRANSITION_DURATION / 5);
 
     setControlConfigHeight();
+
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
   });
+
+  //a quick hack, wait for all the rows
+  useEffect(() => {
+    setTimeout(function () {
+      setControlConfigTop();
+      setShowController(true);
+    }, TRANSITION_DURATION * 2);
+  }, []);
 
   // calculate the current height of the tiles and their top to parent
   const setControlConfigTop = () => {
@@ -102,7 +113,6 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   };
 
   const handleNext = () => {
-    console.log(`enter handle next ${lowestVisibleIndex}`);
     let newIndex = 0;
     if (lowestVisibleIndex === totalItems - itemsInRow) {
       newIndex = 0;
@@ -169,13 +179,13 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
         <SlickDotContainer lowestVisibleIndex={lowestVisibleIndex} itemsInRow={itemsInRow} totalItems={totalItems} />
       </Slick.Heading>
       <Slick.Galery>
-        {sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} currentHeight={calHeight} currentTop={calTop} />}
+        {showController && sliderHasMoved && <Slick.Control direction={"left"} onClick={handlePrev} currentHeight={calHeight} currentTop={calTop} />}
         <div ref={contentDivRef} id={title}>
           <Slick.Content translateXValue={calTransformOutput.translateXValue} transitionDurationValue={calTransformOutput.transDuration} onTransitionEnd={handleTransitionEnd}>
             <SlickContentContainer {...{ lowestVisibleIndex, itemsInRow, totalItems, sliderHasMoved, movies }} ref={contentImageRef} />
           </Slick.Content>
         </div>
-        <Slick.Control direction={"right"} onClick={handleNext} currentHeight={calHeight} currentTop={calTop} />
+        {showController && <Slick.Control direction={"right"} onClick={handleNext} currentHeight={calHeight} currentTop={calTop} />}
       </Slick.Galery>
     </Slick>
   ) : (
