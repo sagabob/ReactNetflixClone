@@ -76,7 +76,7 @@ export const ItemDetail = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 3%;
+  padding: 0 2%;
 `;
 
 export const ItemDetailLeft = styled.div`
@@ -98,6 +98,41 @@ export const ItemImage = styled.img`
   max-width: 100%;
   height: auto;
   object-fit: contain;
+`;
+
+export const ItemButton = styled.button`
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid rgba(51, 51, 51, 0.3);
+  background-color: rgba(51, 51, 51, 0.3);
+  font-size: 1.5rem;
+  margin-right: 0.2rem;
+  transition: all 0.2s;
+  > svg {
+    width: 1.5rem;
+    color: white;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: #e6e6e6;
+    border-color: #e6e6e6;
+    > svg {
+      color: rgba(51, 51, 51, 0.6);
+    }
+  }
+
+  &:active {
+    > svg {
+      color: black;
+    }
+  }
+
+  white-space: nowrap;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Galery = styled.div`
