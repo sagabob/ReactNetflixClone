@@ -35,6 +35,7 @@ export const Item = styled.div<SlickItemProps>`
   height: auto;
   width: ${({ width }) => `${width}%`};
   transition: transform 0.3s ease; /* Animation */
+  padding: 0px 5px;
 
   &:hover,
   &:active {

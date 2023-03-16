@@ -52,7 +52,24 @@ Slick.ItemRef = forwardRef<HTMLImageElement, SlickItemImageProps>(({ children, w
     <Item width={width} {...restProps}>
       <ItemImage src={src} alt={title} ref={ref} />
       <ItemHeading>{title}</ItemHeading>
-      <ItemDetail />
+      <ItemDetail>
+        <ItemDetailLeft>
+          <ItemButton>
+            <PlayCircle />
+          </ItemButton>
+          <ItemButton>
+            <PlusCircle />
+          </ItemButton>
+          <ItemButton>
+            <HandThumbsUp />
+          </ItemButton>
+        </ItemDetailLeft>
+        <ItemDetailRight>
+          <ItemButton>
+            <ArrowDownCircle />
+          </ItemButton>
+        </ItemDetailRight>
+      </ItemDetail>
     </Item>
   );
 });
