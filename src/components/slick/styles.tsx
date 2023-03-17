@@ -108,11 +108,10 @@ export const ItemButton = styled.button`
   background-color: rgba(51, 51, 51, 0.3);
   font-size: 1.5rem;
   margin-right: 0.2rem;
-  transition: all 0.2s;
+
   > svg {
     width: 1.5rem;
     color: white;
-    transition: all 0.2s;
   }
 
   &:hover {
