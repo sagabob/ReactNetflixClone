@@ -6,7 +6,7 @@ import SlickContentContainer from "./slick_content";
 import { SlickDotContainer } from "./slick_dot";
 import { SlickProps } from "./types";
 
-const TRANSITION_DURATION = 1200;
+const TRANSITION_DURATION = 1000;
 
 export function SlickContainer({ fetchUrl, title }: SlickProps) {
   const [sliderHasMoved, setSliderHasMoved] = useState(false); // boolean to display prev arrow
@@ -164,7 +164,7 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
   // callback when the transform ends
   const handleTransitionEnd = (event: TransitionEvent) => {
     //apply the state change on the main div
-    if (event.target == event.currentTarget) {
+    if (event.target === event.currentTarget) {
       setLowestVisibleIndex(calculatedIndex);
       setSliderMoving(false);
     }
