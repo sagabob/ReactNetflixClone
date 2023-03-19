@@ -51,10 +51,11 @@ export function SlickContainer({ fetchUrl, title }: SlickProps) {
     };
   });
 
-  //a quick hack, wait for all the rows
+  //a quick hack, wait for all rendering done
   useEffect(() => {
     setTimeout(function () {
       setControlConfigTop();
+      setControlConfigHeight();
       setShowController(true);
     }, TRANSITION_DURATION * 2);
   }, []);
