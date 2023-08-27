@@ -142,6 +142,7 @@ export const Galery = styled.div`
 
 export const Content = styled.div<SlickContentProps>`
   white-space: nowrap;
+  transition-timing-function: ease;
   ${({ translateXValue }) => translateXValue != undefined && Math.abs(translateXValue) > 0 && `transform: translateX(${translateXValue}%);`};
   ${({ transitionDurationValue }) => transitionDurationValue != undefined && Math.abs(transitionDurationValue) > 0 && `transition-duration: ${transitionDurationValue}ms;`};
 `;
